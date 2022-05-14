@@ -1,0 +1,7 @@
+Goals:
+- be a portfolio(and a piece itself) to showcase my personal projects
+    - more than just linking, be able to have some kind of preview(images, interactive)
+- look good, let me learn how to make things look good
+- be scalable, allow me to add in interesting projects and contents
+- provide some benefit over other sites, convey a personal custom sense of style
+
