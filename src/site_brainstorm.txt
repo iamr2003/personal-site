@@ -1,7 +1,38 @@
+https://www.creativebloq.com/portfolios/tips-portfolio-website-4137460
+
 Goals:
 - be a portfolio(and a piece itself) to showcase my personal projects
     - more than just linking, be able to have some kind of preview(images, interactive)
 - look good, let me learn how to make things look good
 - be scalable, allow me to add in interesting projects and contents
 - provide some benefit over other sites, convey a personal custom sense of style
+    - needs to be unique, don't just copy formats(maybe will shy away from manite, we will see)
+- expansion if I wanted to create a blog or something
+    - or even just condensing some of the QA stuff I do
+- eventually to be just a sandbox for what I do, will likely evolve rapidly
+
+Attributes
+- expandable
+- smooth ways to swap theming/components, reusable and modular
+- a simple way to add more entries, default datatypes and setups(editor mode of future)
+- code is generally useful
+- would like opportunity for framework merging(web components?), but that may be difficult
+
+General side project things
+- responsive accessible, easy to pickup for future
+- 
+
+
+Pages/Elements:
+- About me
+    - relevant links, etc. name, enthusiasm, clubs
+
+- list of projs
+    - front and center
+    - image short explanation
+    - web preview would be really cool
+        - this could be expandable
+    - sorted by different criteria, able to be more exhaustive
+
+Nice Navbar(creative ways?), across top default
 
