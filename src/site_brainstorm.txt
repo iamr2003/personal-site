@@ -11,6 +11,8 @@ Goals:
     - or even just condensing some of the QA stuff I do
 - eventually to be just a sandbox for what I do, will likely evolve rapidly
 
+daniel's is a pretty simple scrolling type thing, made in eecs 493 I think https://danlliu.github.io/
+
 Attributes
 - expandable
 - smooth ways to swap theming/components, reusable and modular
@@ -24,8 +26,17 @@ General side project things
 - involves some learning opportunity
 
 Pages/Elements:
+- fancy splash screen at some point
+
 - About me
     - relevant links, etc. name, enthusiasm, clubs
+
+columns of skills in different jobs(Robotics/CS)
+
+- contact method
+
+
+
 
 - list of projs
     - front and center
@@ -39,5 +50,12 @@ Nice Navbar(creative ways?), across top default
 Task list:
 - Across the Top navbar(no URL change for now)
 - project list of cards
-    - Title(linked), start date, end date, body, image
+    - I wanted some kind of sorting, idk exactly how yet
+    - Title(linked), start date, end date(maybe cleanup), body, image
+    - role
+    - clipping
+
 - clean up theming(maybe later, defaults look good too)
+
+
+
