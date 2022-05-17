@@ -20,8 +20,8 @@ Attributes
 
 General side project things
 - responsive accessible, easy to pickup for future
-- 
-
+    - basically always web
+- involves some learning opportunity
 
 Pages/Elements:
 - About me
@@ -36,3 +36,8 @@ Pages/Elements:
 
 Nice Navbar(creative ways?), across top default
 
+Task list:
+- Across the Top navbar(no URL change for now)
+- project list of cards
+    - Title(linked), start date, end date, body, image
+- clean up theming(maybe later, defaults look good too)

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { AppShell, Navbar, Header,Button, ThemeIcon } from '@mantine/core';
+import { AppShell, Navbar, Header,Button, ThemeIcon,Tabs } from '@mantine/core';
 import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 
 var globalTheme = {
@@ -40,10 +40,9 @@ function App() {
     setColorScheme(value || (colorScheme == 'dark' ? 'light' : 'dark'));
   const dark = colorScheme === 'dark';
 
-  // probably using theme management incorrectly
+  const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
@@ -69,22 +68,27 @@ function App() {
       >
         <AppShell
           padding="md"
-          navbar={<Nav/>}
+          // navbar={<Nav/>}
           header={ 
           <Header height={60} p="xs">
             {/* make it my favorite icons later */}
             <Button color = {dark ? "yellow":"indigo"} onClick={()=>toggleColorScheme()}> Light/Dark </Button>
-            <Button styles={{outline:{color:"lightblue"}}}>Highlight</Button>
+            {/* <Button styles={{outline:{color:"lightblue"}}}>Highlight</Button> */}
+
           </Header>
         }
           styles={(theme) => ({
             main: { backgroundColor: theme.colorScheme == 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
           })}
         >
-
+            {/* I'm not sure if I like this layout, can switch it a bit later, maybe to the vertical scrolling style */}
+            <Tabs active={activeTab} onTabChange={setActiveTab} color={dark?"orange":"indigo"}>
+              <Tabs.Tab label="About">First tab content</Tabs.Tab>
+              <Tabs.Tab label="Projects">Second tab content</Tabs.Tab>
+              <Tabs.Tab label="Experimental">Third tab content</Tabs.Tab>              
+            </Tabs>
         </AppShell>
       </MantineProvider>
-    </ColorSchemeProvider>
   )
 }
 
