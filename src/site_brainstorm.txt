@@ -49,6 +49,7 @@ Nice Navbar(creative ways?), across top default
 
 Task list:
 - Across the Top navbar(no URL change for now)
+    - implemented with tabs, will want to eventually be button based, maybe vertical nav
 - project list of cards
     - I wanted some kind of sorting, idk exactly how yet
     - Title(linked), start date, end date(maybe cleanup), body, image

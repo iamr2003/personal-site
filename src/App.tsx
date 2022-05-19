@@ -1,38 +1,69 @@
-import { useState } from 'react'
+import { useState,FC } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { AppShell, Navbar, Header,Button, ThemeIcon,Tabs } from '@mantine/core';
-import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
+import { AppShell, Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid } from '@mantine/core';
+import { MantineProvider, ColorScheme } from '@mantine/core';
 
-var globalTheme = {
-  colorScheme: 'dark',
-  colors: {
-    // Add your color
-    'deep-blue': ['#E9EDFC', '#C1CCF6', '#99ABF0' /* ... */],
-    // or replace default theme color
-    blue: ['#E9EDFC', '#C1CCF6', '#99ABF0' /* ... */],
-  },
 
-  shadows: {
-    // other shadows (xs, sm, lg) will be merged from default theme
-    md: '1px 1px 3px rgba(0,0,0,.25)',
-    xl: '5px 5px 3px rgba(0,0,0,.25)',
-  },
+interface ProjInfo{
+  title: string;
+  imageURL:string;
+  projectURL:string;  
+  body:string;       
+  description?:string;
+  startDate?:string; //eventually real date class
+  endDate?:string;
+}
 
-  headings: {
-    fontFamily: 'Roboto, sans-serif',
-    sizes: {
-      h1: { fontSize: 30 },
-    },
-  },        
-  }
-
-function Nav(){
+//not sure which notation is better, this or the => one
+function Project(props:ProjInfo){
   return (
-  <Navbar width={{ base: 300 }} height={1000} p="xs">{/* Navbar content */}</Navbar>
+    <Card>
+      <Card.Section>
+        <Image src={props.imageURL}></Image>
+      </Card.Section>
+      <Card.Section>
+        {/* figure out link */}
+      <Title order={3}>Title: {props.title}</Title>
+      </Card.Section>
+      <Card.Section>
+        <Text>{props.body}</Text>
+      </Card.Section>
+    </Card>
   )
 }
 
+interface ProjListInfo{
+  projs:Array<ProjInfo>
+}
+
+// needs more styling on subcomponents, but it works
+function ProjectList(props:ProjListInfo){
+  const projList = props.projs.map(Project);
+  return (
+    <Grid>
+      {projList}
+    </Grid>
+  )
+}
+
+
+
+// Manual inputs
+const projsInput = [
+  {
+    title:'Fastr Food',
+    imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwKS__3aeYLOiN8j1Le-GtHt2zI33vYTNQysiewAEC_w&s',
+    projectURL: 'dummy.com',
+    body:'MHACKS 14 Submission'
+  },
+  {
+    title:'Random',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: 'dummy.com',
+    body:'Nice place bro'
+  },
+]
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
@@ -84,7 +115,10 @@ function App() {
             {/* I'm not sure if I like this layout, can switch it a bit later, maybe to the vertical scrolling style */}
             <Tabs active={activeTab} onTabChange={setActiveTab} color={dark?"orange":"indigo"}>
               <Tabs.Tab label="About">First tab content</Tabs.Tab>
-              <Tabs.Tab label="Projects">Second tab content</Tabs.Tab>
+              <Tabs.Tab label="Projects">
+                <ProjectList projs={projsInput}></ProjectList>
+                {/* <Project body = "this is a thing" title='food' projectURL='https://mantine.dev/core/title/' imageURL='https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80'></Project> */}
+              </Tabs.Tab>
               <Tabs.Tab label="Experimental">Third tab content</Tabs.Tab>              
             </Tabs>
         </AppShell>
