@@ -18,18 +18,19 @@ interface ProjInfo{
 //not sure which notation is better, this or the => one
 function Project(props:ProjInfo){
   return (
-    <Card>
-      <Card.Section>
-        <Image src={props.imageURL}></Image>
-      </Card.Section>
-      <Card.Section>
-        {/* figure out link */}
-      <Title order={3}>Title: {props.title}</Title>
-      </Card.Section>
-      <Card.Section>
+    <Grid.Col span={5} style={{maxWidth:"500px"}}>
+      {/* <div style={{maxWidth:"500px"}}> */}
+      <Card m ="lg" radius="lg" shadow="sm" style = {{minHeight:"400px"}}>
+        <Card.Section>
+          {/* make all images look sameish proportions */}
+          <Image src={props.imageURL}></Image>
+        </Card.Section>
+          {/* figure out link */}
+        <Title order={3}>{props.title}</Title>
         <Text>{props.body}</Text>
-      </Card.Section>
-    </Card>
+      </Card>
+      {/* </div> */}
+    </Grid.Col>
   )
 }
 
@@ -40,8 +41,9 @@ interface ProjListInfo{
 // needs more styling on subcomponents, but it works
 function ProjectList(props:ProjListInfo){
   const projList = props.projs.map(Project);
+
   return (
-    <Grid>
+    <Grid grow>
       {projList}
     </Grid>
   )
@@ -61,8 +63,20 @@ const projsInput = [
     title:'Random',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'dummy.com',
-    body:'Nice place bro'
+    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond'
   },
+  {
+    title:'Random',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: 'dummy.com',
+    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond'
+  },
+  {
+    title:'Random',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: 'dummy.com',
+    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond'
+  }
 ]
 
 function App() {
