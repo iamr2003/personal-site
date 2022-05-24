@@ -1,15 +1,78 @@
 import { useState,FC } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { AppShell, Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid } from '@mantine/core';
+import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar } from '@mantine/core';
 import { MantineProvider, ColorScheme } from '@mantine/core';
+import { Sun, MoonStars } from 'tabler-icons-react';
+// Manual inputs
 
+//use badges
+enum Label{
+  Software = 'indigo',
+  Robotics = 'yellow',
+  Misc = 'violet'
+}
 
+const projsInput = [
+  {
+    title:'Fastr Food',
+    imageURL:'images/Fastr_Food_Cropped.png',
+    projectURL: 'dummy.com',
+    body:'MHACKS 14 Submission',
+    labels:[Label.Software]
+  },
+  {
+    title:'Simulating Robot-Based Pollination',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: 'dummy.com',
+    body:'WORDS is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
+    labels:[]
+  },
+  {
+    title:'FRC Autonomous Development',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: 'dummy.com',
+    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
+    labels:[]
+  },
+  {
+    title:'Retaining Ampitheater',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: 'dummy.com',
+    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
+    labels:[]
+  }
+]
+
+// interface labelStyleIn{
+//   label:Label
+// }
+
+function LabelStyler(props:Label){
+  let name = props;
+  return (
+    <Badge color={props}>{name}</Badge>//need to figure out this color stuff
+  )
+}
+
+interface labelList{
+  list:Array<Label>
+}
+
+function ListOfLabels(props:labelList){
+  const comps = props.list.map(LabelStyler);
+  return (
+    <Group>{comps}</Group>
+  )
+}
+
+//kinda want a little tags bumper
 interface ProjInfo{
   title: string;
   imageURL:string;
   projectURL:string;  
-  body:string;       
+  body:string;      
+  labels:Array<Label>; 
   description?:string;
   startDate?:string; //eventually real date class
   endDate?:string;
@@ -27,6 +90,7 @@ function Project(props:ProjInfo){
         </Card.Section>
           {/* figure out link */}
         <Title order={3}>{props.title}</Title>
+        <ListOfLabels list={props.labels}></ListOfLabels>
         <Text>{props.body}</Text>
       </Card>
       {/* </div> */}
@@ -51,33 +115,7 @@ function ProjectList(props:ProjListInfo){
 
 
 
-// Manual inputs
-const projsInput = [
-  {
-    title:'Fastr Food',
-    imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwKS__3aeYLOiN8j1Le-GtHt2zI33vYTNQysiewAEC_w&s',
-    projectURL: 'dummy.com',
-    body:'MHACKS 14 Submission'
-  },
-  {
-    title:'Random',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
-    projectURL: 'dummy.com',
-    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond'
-  },
-  {
-    title:'Random',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
-    projectURL: 'dummy.com',
-    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond'
-  },
-  {
-    title:'Random',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
-    projectURL: 'dummy.com',
-    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond'
-  }
-]
+
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
@@ -117,9 +155,14 @@ function App() {
           header={ 
           <Header height={60} p="xs">
             {/* make it my favorite icons later */}
-            <Button color = {dark ? "yellow":"indigo"} onClick={()=>toggleColorScheme()}> Light/Dark </Button>
-            {/* <Button styles={{outline:{color:"lightblue"}}}>Highlight</Button> */}
-
+            <ActionIcon
+              variant="outline"
+              color={dark ? 'yellow' : 'blue'}
+              onClick={() => toggleColorScheme()}
+              title="Toggle color scheme"
+            >
+              {dark ? <Sun size={18} /> : <MoonStars size={18} />}
+            </ActionIcon>
           </Header>
         }
           styles={(theme) => ({
@@ -128,10 +171,18 @@ function App() {
         >
             {/* I'm not sure if I like this layout, can switch it a bit later, maybe to the vertical scrolling style */}
             <Tabs active={activeTab} onTabChange={setActiveTab} color={dark?"orange":"indigo"}>
-              <Tabs.Tab label="About">First tab content</Tabs.Tab>
+              <Tabs.Tab label="About">
+                {/* This looks kinda disgusting, should use avatar for face */}
+                <Stack spacing="xs">
+                  {/* image might just be better */}
+                  <Avatar src='images/SeniorFace.jpg' size='xl' radius='xl'></Avatar>
+                  <Title order={2}>Ibrahim Musaddequr Rahman</Title>
+                  <Anchor href='https://www.linkedin.com/in/iamr2003/'>LinkedIn</Anchor>
+                  <Anchor href='https://github.com/iamr2003'>Github</Anchor>
+                </Stack>
+              </Tabs.Tab>
               <Tabs.Tab label="Projects">
                 <ProjectList projs={projsInput}></ProjectList>
-                {/* <Project body = "this is a thing" title='food' projectURL='https://mantine.dev/core/title/' imageURL='https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80'></Project> */}
               </Tabs.Tab>
               <Tabs.Tab label="Experimental">Third tab content</Tabs.Tab>              
             </Tabs>
