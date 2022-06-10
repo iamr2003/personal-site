@@ -3,12 +3,12 @@ import logo from './logo.svg'
 import './App.css'
 import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar } from '@mantine/core';
 import { MantineProvider, ColorScheme } from '@mantine/core';
-import { Sun, MoonStars } from 'tabler-icons-react';
+import { Sun, MoonStars} from 'tabler-icons-react';
 // Manual inputs
 
 //use badges
 enum Label{
-  Software = 'indigo',
+  Software = 'indigo', //should maybe break this up
   Robotics = 'yellow',
   Misc = 'violet'
 }
@@ -17,30 +17,30 @@ const projsInput = [
   {
     title:'Fastr Food',
     imageURL:'images/Fastr_Food_Cropped.png',
-    projectURL: 'dummy.com',
+    projectURL: 'https://devpost.com/software/fastr-food',
     body:'MHACKS 14 Submission',
     labels:[Label.Software]
   },
   {
     title:'Simulating Robot-Based Pollination',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
-    projectURL: 'dummy.com',
+    imageURL: 'images/PollinationSimPics.png',
+    projectURL: 'https://github.com/wvu-robotics/workspace-pollination-sim',
     body:'WORDS is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
-    labels:[]
+    labels:[Label.Robotics]
   },
   {
     title:'FRC Autonomous Development',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'dummy.com',
     body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
-    labels:[]
+    labels:[Label.Robotics]
   },
   {
     title:'Retaining Ampitheater',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
-    projectURL: 'dummy.com',
+    projectURL: 'https://docs.google.com/presentation/d/1aP3j4olLRgYe2YNnLTBH73c660270TyJfuQBbBDXpQ4/edit?usp=sharing',
     body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
-    labels:[]
+    labels:[Label.Misc]
   }
 ]
 
@@ -49,7 +49,12 @@ const projsInput = [
 // }
 
 function LabelStyler(props:Label){
-  let name = props;
+  let name:string = '';
+  for (let key in Label){
+    if (Label[key] === props){ //TS gets mad, but it's fine
+      name = key;
+    }
+  }
   return (
     <Badge color={props}>{name}</Badge>//need to figure out this color stuff
   )
@@ -82,6 +87,7 @@ interface ProjInfo{
 function Project(props:ProjInfo){
   return (
     <Grid.Col span={5} style={{maxWidth:"500px"}}>
+      <a href={props.projectURL} style={{ textDecoration: 'none',color:'inherit' }}>
       {/* <div style={{maxWidth:"500px"}}> */}
       <Card m ="lg" radius="lg" shadow="sm" style = {{minHeight:"400px"}}>
         <Card.Section>
@@ -89,10 +95,13 @@ function Project(props:ProjInfo){
           <Image src={props.imageURL}></Image>
         </Card.Section>
           {/* figure out link */}
-        <Title order={3}>{props.title}</Title>
+
+          <Title order={3}>{props.title}</Title>
+
         <ListOfLabels list={props.labels}></ListOfLabels>
         <Text>{props.body}</Text>
       </Card>
+      </a>
       {/* </div> */}
     </Grid.Col>
   )
@@ -112,10 +121,6 @@ function ProjectList(props:ProjListInfo){
     </Grid>
   )
 }
-
-
-
-
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
