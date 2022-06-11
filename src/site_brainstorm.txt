@@ -55,8 +55,18 @@ Task list:
     - Title(linked), start date, end date(maybe cleanup), body, image
     - role
     - clipping
+    - milking school projects more too
+    - also list older projects too
+    - figure out a recency biaser/something
+
+- A nice header
+- education list
+    - classes, etc.
 
 - clean up theming(maybe later, defaults look good too)
 
-
-
+To compare:
+https://rramboer.github.io/#
+https://danlliu.github.io/
+    - ok I can do more than this one design-wise, info is inspirational
+    - icons can be super helpful

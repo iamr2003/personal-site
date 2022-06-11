@@ -8,7 +8,7 @@ import { Sun, MoonStars} from 'tabler-icons-react';
 
 //use badges
 enum Label{
-  Software = 'indigo', //should maybe break this up
+  Web = 'indigo', //should maybe break this up
   Robotics = 'yellow',
   Misc = 'violet',
   HighSchool = 'lime'
@@ -19,15 +19,15 @@ const projsInput = [
     title:'Personal Site',
     imageURL:'images/PicOfSite.png',
     projectURL: '',
-    body:'You\'re looking at it. Built in React+TS+Mantine. Built in modular fashion, easily scalable and updateable. Goals to rewrite in a few frameworks, a playground for my web development curiosities.',
-    labels:[Label.Software]
+    body:'You\'re looking at it. Built in React+TS+Mantine. Built in modular fashion, responsive and scalable. Goals to rewrite in a few frameworks, a playground for my web development curiosities.',
+    labels:[Label.Web]
   },
   {
     title:'Fastr Food',
     imageURL:'images/Fastr_Food_Cropped.png',
     projectURL: 'https://devpost.com/software/fastr-food',
     body:'MHACKS 14 Submission',
-    labels:[Label.Software]
+    labels:[Label.Web]
   },
   {
     title:'Simulating Robot-Based Pollination',
