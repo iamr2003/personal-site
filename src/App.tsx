@@ -1,7 +1,7 @@
 import { useState,FC } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar } from '@mantine/core';
+import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio } from '@mantine/core';
 import { MantineProvider, ColorScheme } from '@mantine/core';
 import { Sun, MoonStars} from 'tabler-icons-react';
 // Manual inputs
@@ -10,10 +10,18 @@ import { Sun, MoonStars} from 'tabler-icons-react';
 enum Label{
   Software = 'indigo', //should maybe break this up
   Robotics = 'yellow',
-  Misc = 'violet'
+  Misc = 'violet',
+  HighSchool = 'lime'
 }
 
 const projsInput = [
+  {
+    title:'Personal Site',
+    imageURL:'images/PicOfSite.png',
+    projectURL: '',
+    body:'You\'re looking at it. Built in React+TS+Mantine. Built in modular fashion, easily scalable and updateable. Goals to rewrite in a few frameworks, a playground for my web development curiosities.',
+    labels:[Label.Software]
+  },
   {
     title:'Fastr Food',
     imageURL:'images/Fastr_Food_Cropped.png',
@@ -33,14 +41,14 @@ const projsInput = [
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'dummy.com',
     body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
-    labels:[Label.Robotics]
+    labels:[Label.Robotics,Label.HighSchool]
   },
   {
     title:'Retaining Ampitheater',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'https://docs.google.com/presentation/d/1aP3j4olLRgYe2YNnLTBH73c660270TyJfuQBbBDXpQ4/edit?usp=sharing',
     body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
-    labels:[Label.Misc]
+    labels:[Label.Misc,Label.HighSchool]
   }
 ]
 
@@ -91,8 +99,10 @@ function Project(props:ProjInfo){
       {/* <div style={{maxWidth:"500px"}}> */}
       <Card m ="lg" radius="lg" shadow="sm" style = {{minHeight:"400px"}}>
         <Card.Section>
-          {/* make all images look sameish proportions */}
+          {/* I don't like this much, I want a way to tile different sized things */}
+          <AspectRatio ratio={1.3/1} sx={{ maxWidth: 500 }} mx="auto">
           <Image src={props.imageURL}></Image>
+          </AspectRatio>
         </Card.Section>
           {/* figure out link */}
 
@@ -116,7 +126,7 @@ function ProjectList(props:ProjListInfo){
   const projList = props.projs.map(Project);
 
   return (
-    <Grid grow>
+    <Grid grow gutter={"xs"} justify="flex-end">
       {projList}
     </Grid>
   )
