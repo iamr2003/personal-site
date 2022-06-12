@@ -4,6 +4,7 @@ import './App.css'
 import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio } from '@mantine/core';
 import { MantineProvider, ColorScheme } from '@mantine/core';
 import { Sun, MoonStars} from 'tabler-icons-react';
+import {AiFillLinkedin,AiFillGithub} from 'icons-react/ai';
 // Manual inputs
 
 //use badges
@@ -14,6 +15,7 @@ enum Label{
   HighSchool = 'lime'
 }
 
+// original order is by recency
 const projsInput = [
   {
     title:'Personal Site',
@@ -26,7 +28,7 @@ const projsInput = [
     title:'Fastr Food',
     imageURL:'images/Fastr_Food_Cropped.png',
     projectURL: 'https://devpost.com/software/fastr-food',
-    body:'MHACKS 14 Submission',
+    body:'MHACKS 14 Submission. Webapp to crowdsource dining hall wait times, and factor in commute distances to recommend locations. Built with Firebase and Bootrap.',
     labels:[Label.Web]
   },
   {
@@ -94,13 +96,13 @@ interface ProjInfo{
 //not sure which notation is better, this or the => one
 function Project(props:ProjInfo){
   return (
-    <Grid.Col span={5} style={{maxWidth:"500px"}}>
+    <Grid.Col span={5} style={{maxWidth:"50ch"}}>
       <a href={props.projectURL} style={{ textDecoration: 'none',color:'inherit' }}>
-      {/* <div style={{maxWidth:"500px"}}> */}
-      <Card m ="lg" radius="lg" shadow="sm" style = {{minHeight:"400px"}}>
+        {/* style = {{minHeight:"400px"}} */}
+      <Card m ="lg" radius="lg" shadow="sm" style={{minHeight:"25em"}}>
         <Card.Section>
-          {/* I don't like this much, I want a way to tile different sized things */}
-          <AspectRatio ratio={1.3/1} sx={{ maxWidth: 500 }} mx="auto">
+          {/* Need to cap this better, maybe choose different images, or learn to tile better */}
+          <AspectRatio ratio={1.3/1} sx={{ maxWidth: "50ch" }} mx="auto">
           <Image src={props.imageURL}></Image>
           </AspectRatio>
         </Card.Section>
@@ -192,8 +194,8 @@ function App() {
                   {/* image might just be better */}
                   <Avatar src='images/SeniorFace.jpg' size='xl' radius='xl'></Avatar>
                   <Title order={2}>Ibrahim Musaddequr Rahman</Title>
-                  <Anchor href='https://www.linkedin.com/in/iamr2003/'>LinkedIn</Anchor>
-                  <Anchor href='https://github.com/iamr2003'>Github</Anchor>
+                  <Anchor href='https://www.linkedin.com/in/iamr2003/'><AiFillLinkedin/></Anchor>
+                  <Anchor href='https://github.com/iamr2003'><AiFillGithub/></Anchor>
                 </Stack>
               </Tabs.Tab>
               <Tabs.Tab label="Projects">
