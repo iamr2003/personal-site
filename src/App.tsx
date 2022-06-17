@@ -1,7 +1,7 @@
-import { useState,FC } from 'react'
+import { useState,FC, useContext } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox } from '@mantine/core';
+import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox, useMantineColorScheme, useMantineTheme } from '@mantine/core';
 import { MantineProvider, ColorScheme } from '@mantine/core';
 import { Sun, MoonStars} from 'tabler-icons-react';
 import {AiFillLinkedin,AiFillGithub} from 'icons-react/ai';
@@ -135,6 +135,9 @@ function ProjectList(props:ProjListInfo){
 }
 
 function ProjectPanel(props){
+  const mantineTheme = useMantineTheme();
+  const dark = mantineTheme.colorScheme === 'dark';
+
   const [robotics, setRobotics] = useState(true);
   const [web, setWeb] = useState(true);
   const [misc, setMisc] = useState(true);
@@ -162,10 +165,11 @@ function ProjectPanel(props){
 
   return (
     <>
-    <Checkbox label="Robotics" checked={robotics} onChange={() =>setRobotics(!robotics)}/>
-    <Checkbox label="Web" checked={web} onChange={() =>setWeb(!web)}/>
-    <Checkbox label="Misc" checked={misc} onChange={() =>setMisc(!misc)}/>
-    <Checkbox label="High School" checked={highschool} onChange={() =>setHighschool(!highschool)}/>
+    {/* need to style this card more */}
+    <Checkbox color ={dark?"yellow":"indigo"} label="Robotics" checked={robotics} onChange={() =>setRobotics(!robotics)}/>
+    <Checkbox color ={dark?"yellow":"indigo"} label="Web" checked={web} onChange={() =>setWeb(!web)}/>
+    <Checkbox color ={dark?"yellow":"indigo"} label="Misc" checked={misc} onChange={() =>setMisc(!misc)}/>
+    <Checkbox color ={dark?"yellow":"indigo"} label="High School" checked={highschool} onChange={() =>setHighschool(!highschool)}/>
     
     <ProjectList projs={filteredProjs}></ProjectList>
     </>
@@ -177,8 +181,9 @@ function App() {
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme == 'dark' ? 'light' : 'dark'));
   const dark = colorScheme === 'dark';
-
+  
   const [activeTab, setActiveTab] = useState(1);
+
 
   return (
       <MantineProvider
