@@ -1,7 +1,7 @@
 import { useState,FC } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio } from '@mantine/core';
+import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox } from '@mantine/core';
 import { MantineProvider, ColorScheme } from '@mantine/core';
 import { Sun, MoonStars} from 'tabler-icons-react';
 import {AiFillLinkedin,AiFillGithub} from 'icons-react/ai';
@@ -134,6 +134,44 @@ function ProjectList(props:ProjListInfo){
   )
 }
 
+function ProjectPanel(props){
+  const [robotics, setRobotics] = useState(true);
+  const [web, setWeb] = useState(true);
+  const [misc, setMisc] = useState(true);
+  const [highschool, setHighschool] = useState(true);
+
+  const filteredProjs = projsInput.filter(proj => {
+      return proj.labels.some(label => {
+        if (label === Label.Robotics && robotics){
+          return true;
+        }
+        if (label === Label.Web && web){
+          return true;
+        }
+        if (label === Label.Misc && misc){
+          return true;
+        }
+        if (label === Label.HighSchool && highschool){
+          return true;
+        }
+        else{
+          return false;
+        }
+      });
+  });
+
+  return (
+    <>
+    <Checkbox label="Robotics" checked={robotics} onChange={() =>setRobotics(!robotics)}/>
+    <Checkbox label="Web" checked={web} onChange={() =>setWeb(!web)}/>
+    <Checkbox label="Misc" checked={misc} onChange={() =>setMisc(!misc)}/>
+    <Checkbox label="High School" checked={highschool} onChange={() =>setHighschool(!highschool)}/>
+    
+    <ProjectList projs={filteredProjs}></ProjectList>
+    </>
+  )
+}
+
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
@@ -199,7 +237,8 @@ function App() {
                 </Stack>
               </Tabs.Tab>
               <Tabs.Tab label="Projects">
-                <ProjectList projs={projsInput}></ProjectList>
+                {/* <ProjectList projs={projsInput}></ProjectList> */}
+                <ProjectPanel projsInput={projsInput}></ProjectPanel>
               </Tabs.Tab>
               <Tabs.Tab label="Experimental">Third tab content</Tabs.Tab>              
             </Tabs>
