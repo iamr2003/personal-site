@@ -2,7 +2,7 @@ import { useState,FC, useContext } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox, useMantineColorScheme, useMantineTheme } from '@mantine/core';
-import { MantineProvider, ColorScheme } from '@mantine/core';
+import { MantineProvider, ColorScheme, Chip} from '@mantine/core';
 import { Sun, MoonStars} from 'tabler-icons-react';
 import {AiFillLinkedin,AiFillGithub} from 'icons-react/ai';
 // Manual inputs
@@ -166,11 +166,12 @@ function ProjectPanel(props){
   return (
     <>
     {/* need to style this card more */}
-    <Checkbox color ={dark?"yellow":"indigo"} label="Robotics" checked={robotics} onChange={() =>setRobotics(!robotics)}/>
-    <Checkbox color ={dark?"yellow":"indigo"} label="Web" checked={web} onChange={() =>setWeb(!web)}/>
-    <Checkbox color ={dark?"yellow":"indigo"} label="Misc" checked={misc} onChange={() =>setMisc(!misc)}/>
-    <Checkbox color ={dark?"yellow":"indigo"} label="High School" checked={highschool} onChange={() =>setHighschool(!highschool)}/>
-    
+    <Group>
+    <Chip color ={dark?"yellow":"indigo"} checked={robotics} onChange={() =>setRobotics(!robotics)}>Robotics</Chip>
+    <Chip color ={dark?"yellow":"indigo"} checked={web} onChange={() =>setWeb(!web)}>Web</Chip>
+    <Chip color ={dark?"yellow":"indigo"} checked={misc} onChange={() =>setMisc(!misc)}>Misc</Chip>
+    <Chip color ={dark?"yellow":"indigo"} checked={highschool} onChange={() =>setHighschool(!highschool)}>High School</Chip>
+    </Group>
     <ProjectList projs={filteredProjs}></ProjectList>
     </>
   )
