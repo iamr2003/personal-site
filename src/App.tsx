@@ -142,7 +142,7 @@ function ProjectPanel(props){
   const [web, setWeb] = useState(true);
   const [misc, setMisc] = useState(true);
   const [highschool, setHighschool] = useState(true);
-
+// would like to be able to generalize to labels
   const filteredProjs = projsInput.filter(proj => {
       return proj.labels.some(label => {
         if (label === Label.Robotics && robotics){
@@ -166,14 +166,30 @@ function ProjectPanel(props){
   return (
     <>
     {/* need to style this card more */}
-    <Group>
+    <Group position='center'>
     <Chip color ={dark?"yellow":"indigo"} checked={robotics} onChange={() =>setRobotics(!robotics)}>Robotics</Chip>
     <Chip color ={dark?"yellow":"indigo"} checked={web} onChange={() =>setWeb(!web)}>Web</Chip>
     <Chip color ={dark?"yellow":"indigo"} checked={misc} onChange={() =>setMisc(!misc)}>Misc</Chip>
     <Chip color ={dark?"yellow":"indigo"} checked={highschool} onChange={() =>setHighschool(!highschool)}>High School</Chip>
     </Group>
+    {/* Idea: split into x columns(media query?) each can expand, there are more issues though*/}
     <ProjectList projs={filteredProjs}></ProjectList>
     </>
+  )
+}
+
+function Profile(props){
+  return(
+  <Stack spacing="xs">
+    {/* image might just be better */}
+    <Avatar src='images/SeniorFace.jpg' size='xl' radius='xl'></Avatar>
+    <Title order={2}>Ibrahim Musaddequr Rahman</Title>
+    {/* add some more text, edu, skills, maybe unis/companies, as logo as possible */}
+    <Group>
+    <a href='https://www.linkedin.com/in/iamr2003/' style={{ textDecoration: 'none',color:'inherit' }}><AiFillLinkedin size={70}/></a>
+    <a href='https://github.com/iamr2003' style={{ textDecoration: 'none',color:'inherit' }}><AiFillGithub size={70}/></a>
+    </Group>
+  </Stack>
   )
 }
 
@@ -214,6 +230,8 @@ function App() {
           padding="md"
           // navbar={<Nav/>}
           header={ 
+
+          // need to freeze the header on scrolls
           <Header height={60} p="xs">
             {/* make it my favorite icons later */}
             <ActionIcon
@@ -234,13 +252,7 @@ function App() {
             <Tabs active={activeTab} onTabChange={setActiveTab} color={dark?"orange":"indigo"}>
               <Tabs.Tab label="About">
                 {/* This looks kinda disgusting, should use avatar for face */}
-                <Stack spacing="xs">
-                  {/* image might just be better */}
-                  <Avatar src='images/SeniorFace.jpg' size='xl' radius='xl'></Avatar>
-                  <Title order={2}>Ibrahim Musaddequr Rahman</Title>
-                  <Anchor href='https://www.linkedin.com/in/iamr2003/'><AiFillLinkedin/></Anchor>
-                  <Anchor href='https://github.com/iamr2003'><AiFillGithub/></Anchor>
-                </Stack>
+                <Profile></Profile>
               </Tabs.Tab>
               <Tabs.Tab label="Projects">
                 {/* <ProjectList projs={projsInput}></ProjectList> */}
