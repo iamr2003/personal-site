@@ -168,7 +168,7 @@ function ProjectPanel(props){
   return (
     <>
     {/* need to style this card more */}
-    <Group position='center'>
+    <Group position='center' >
     <Chip color ={dark?"yellow":"indigo"} checked={robotics} onChange={() =>setRobotics(!robotics)}>Robotics</Chip>
     <Chip color ={dark?"yellow":"indigo"} checked={web} onChange={() =>setWeb(!web)}>Web</Chip>
     <Chip color ={dark?"yellow":"indigo"} checked={misc} onChange={() =>setMisc(!misc)}>Misc</Chip>
@@ -224,7 +224,7 @@ function Profile(props){
       <Text>Frameworks & Tools:</Text> <SiBootstrap size={30}/><SiFirebase size={30}/><SiJquery size={30}/><SiReact size={30}/>
     </Group>
 
-
+    {/* Add some eduction info */}
     
 
   </Stack>
@@ -269,7 +269,8 @@ function App() {
           // navbar={<Nav/>}
           header={ 
           // need to freeze the header on scrolls, issue with them going on top of each other
-          <Header height={60} p="xs" fixed  position={{ top: 0, left: 0 }}>
+          // fixed  position={{ top: 0, left: 0 }}
+          <Header height={60} p="xs" >
             {/* make it my favorite icons later */}
             <ActionIcon
               variant="outline"
