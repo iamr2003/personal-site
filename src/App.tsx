@@ -1,10 +1,12 @@
 import { useState,FC, useContext } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox, useMantineColorScheme, useMantineTheme } from '@mantine/core';
+import { Affix,AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox, useMantineColorScheme, useMantineTheme } from '@mantine/core';
 import { MantineProvider, ColorScheme, Chip} from '@mantine/core';
 import { Sun, MoonStars} from 'tabler-icons-react';
-import {AiFillLinkedin,AiFillGithub} from 'icons-react/ai';
+import {AiFillLinkedin,AiFillGithub,AiFillWindows,AiFillApple,AiFillHtml5} from 'icons-react/ai';
+import {FaUbuntu,FaFedora} from 'icons-react/fa';
+import {SiCplusplus,SiPython,SiJava,SiJavascript,SiCss3,SiLabview,SiBootstrap,SiFirebase,SiJquery,SiReact} from 'react-icons/si';
 // Manual inputs
 
 //use badges
@@ -185,10 +187,46 @@ function Profile(props){
     <Avatar src='images/SeniorFace.jpg' size='xl' radius='xl'></Avatar>
     <Title order={2}>Ibrahim Musaddequr Rahman</Title>
     {/* add some more text, edu, skills, maybe unis/companies, as logo as possible */}
+    <Text>Some words about my bio, etc.</Text>
+
+    {/* Github and linked in */}
     <Group>
+      {/* make an anchor no style  component*/}
+      {/* ADD A NORMAL RESUME LINK */}
     <a href='https://www.linkedin.com/in/iamr2003/' style={{ textDecoration: 'none',color:'inherit' }}><AiFillLinkedin size={70}/></a>
     <a href='https://github.com/iamr2003' style={{ textDecoration: 'none',color:'inherit' }}><AiFillGithub size={70}/></a>
+    <Text>RESUME</Text>
     </Group>
+
+    {/* OS's, skills, frameworks(would like links on icons eventually) */}
+    {/* I'm gonna need colors eh, probably a whole icon component */}
+    <Group>
+      {/* add garuda */}
+      <Text>OSs:</Text><AiFillWindows size={30}/><AiFillApple size={30}/><FaUbuntu size={30}/><FaFedora size={30}/>
+    </Group>
+    
+    {/* need to find a lot of these on their own */}
+    {/* consider eventually a filtering of the projects by these icons */}
+    <Group>
+      <Text>Languages:</Text>
+      <SiCplusplus size={30}/>
+      <SiPython size={30}/>
+      <SiJava size={30}/>
+      <SiJavascript size={30}/>
+      <AiFillHtml5 size={38}/>
+      <SiCss3 size={30}/>
+      {/* Do I even include? */}
+      <SiLabview size={30}/> 
+    </Group>
+    
+    <Group>
+      {/* add ROS,Gazebo */}
+      <Text>Frameworks & Tools:</Text> <SiBootstrap size={30}/><SiFirebase size={30}/><SiJquery size={30}/><SiReact size={30}/>
+    </Group>
+
+
+    
+
   </Stack>
   )
 }
@@ -230,9 +268,8 @@ function App() {
           padding="md"
           // navbar={<Nav/>}
           header={ 
-
-          // need to freeze the header on scrolls
-          <Header height={60} p="xs">
+          // need to freeze the header on scrolls, issue with them going on top of each other
+          <Header height={60} p="xs" fixed  position={{ top: 0, left: 0 }}>
             {/* make it my favorite icons later */}
             <ActionIcon
               variant="outline"
