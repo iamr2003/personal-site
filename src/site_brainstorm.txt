@@ -67,6 +67,7 @@ Task list:
 
 To compare:
 https://rramboer.github.io/#
+    - a little over the top imo, and over attributes class projs
 https://danlliu.github.io/
     - ok I can do more than this one design-wise, info is inspirational
     - icons can be super helpful

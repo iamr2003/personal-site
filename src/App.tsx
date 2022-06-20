@@ -14,10 +14,13 @@ enum Label{
   Web = 'indigo', //should maybe break this up
   Robotics = 'yellow',
   Misc = 'violet',
-  HighSchool = 'lime'
+  School = 'green'
+  // HighSchool = 'lime' I don't like this label, who care
 }
 
 // original order is by recency
+// in general, descriptions are too long, abstract out to pages, more images = better
+// goal is to create a forever listicle, with some amount of filtering
 const projsInput = [
   {
     title:'Personal Site',
@@ -45,14 +48,44 @@ const projsInput = [
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'dummy.com',
     body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
-    labels:[Label.Robotics,Label.HighSchool]
+    labels:[Label.Robotics]
   },
   {
     title:'Retaining Ampitheater',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'https://docs.google.com/presentation/d/1aP3j4olLRgYe2YNnLTBH73c660270TyJfuQBbBDXpQ4/edit?usp=sharing',
     body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
-    labels:[Label.Misc,Label.HighSchool]
+    labels:[Label.Misc]
+  },
+
+  // I feel a bit icky padding things with school projects, but I'll just not make them display initially, and only include the most interesting
+  {
+    title:'Seam Carving Algorithm',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: '',
+    body:'EECS 280 Project: Implemented seam carving algorithm to resize images intelligently, eliminating less important information first.',
+    labels:[Label.School]    
+  },
+  {
+    title:'Piazza Post Classification',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: '',
+    body:'EECS 280 Project: Utilized a simple bayesian classifier to do natural language processing and determine a post\'s topic based on the body.',
+    labels:[Label.School]    
+  },
+  {
+    title:'SQL recreation',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: '',
+    body:'EECS 281 Project: Implement a portion of the Standard Querying Language(SQL) to create, query, and modify a database.',
+    labels:[Label.School]    
+  },
+  {
+    title:'FRC Scouting Data Acquistion and Analysis System',
+    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    projectURL: 'dummy.com',
+    body:' Used to gather data about other teams at competition, and develop strategic insights. Written with JS, JQuery, Bootstrap and Firebase, integrated with Google Sheets.',
+    labels:[Label.Web]
   }
 ]
 
@@ -126,6 +159,7 @@ interface ProjListInfo{
 }
 
 // needs more styling on subcomponents, but it works
+// I want to take this away from grid, and make something less uniform and more dynamic(splitting into colums and letting them waterfall a bit)
 function ProjectList(props:ProjListInfo){
   const projList = props.projs.map(Project);
 
@@ -143,7 +177,7 @@ function ProjectPanel(props){
   const [robotics, setRobotics] = useState(true);
   const [web, setWeb] = useState(true);
   const [misc, setMisc] = useState(true);
-  const [highschool, setHighschool] = useState(true);
+  const [school, setSchool] = useState(false);
 // would like to be able to generalize to labels
   const filteredProjs = projsInput.filter(proj => {
       return proj.labels.some(label => {
@@ -156,7 +190,7 @@ function ProjectPanel(props){
         if (label === Label.Misc && misc){
           return true;
         }
-        if (label === Label.HighSchool && highschool){
+        if (label === Label.School && school){
           return true;
         }
         else{
@@ -172,7 +206,7 @@ function ProjectPanel(props){
     <Chip color ={dark?"yellow":"indigo"} checked={robotics} onChange={() =>setRobotics(!robotics)}>Robotics</Chip>
     <Chip color ={dark?"yellow":"indigo"} checked={web} onChange={() =>setWeb(!web)}>Web</Chip>
     <Chip color ={dark?"yellow":"indigo"} checked={misc} onChange={() =>setMisc(!misc)}>Misc</Chip>
-    <Chip color ={dark?"yellow":"indigo"} checked={highschool} onChange={() =>setHighschool(!highschool)}>High School</Chip>
+    <Chip color ={dark?"yellow":"indigo"} checked={school} onChange={() =>setSchool(!school)}> School</Chip>
     </Group>
     {/* Idea: split into x columns(media query?) each can expand, there are more issues though*/}
     <ProjectList projs={filteredProjs}></ProjectList>
@@ -224,8 +258,9 @@ function Profile(props){
       <Text>Frameworks & Tools:</Text> <SiBootstrap size={30}/><SiFirebase size={30}/><SiJquery size={30}/><SiReact size={30}/>
     </Group>
 
-    {/* Add some eduction info */}
+    {/* Add some EDUCATION info */}
     
+    {/* Add some WORK info */}
 
   </Stack>
   )
