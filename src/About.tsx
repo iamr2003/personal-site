@@ -4,7 +4,7 @@ import {FaUbuntu,FaFedora} from 'icons-react/fa';
 import {SiCplusplus,SiPython,SiJava,SiJavascript,SiCss3,SiLabview,SiBootstrap,SiFirebase,SiJquery,SiReact} from 'react-icons/si';
 
 
-export function Profile(props){
+export function Profile(props:{}){
     return(
     <Stack spacing="xs">
       {/* image might just be better */}
@@ -47,9 +47,7 @@ export function Profile(props){
         {/* add ROS,Gazebo */}
         <Text>Frameworks & Tools:</Text> <SiBootstrap size={30}/><SiFirebase size={30}/><SiJquery size={30}/><SiReact size={30}/>
       </Group>
-  
-      {/* Add some EDUCATION info */}
-      
+        
       {/* Add some WORK info */}
   
     </Stack>
@@ -82,9 +80,9 @@ function Class(props:ClassInfo){
 export function ClassList(props:{classes:Array<ClassInfo>}){
     return(
     <Grid>
-        {props.classes.map((proj)=>{
+        {props.classes.map((classIn)=>{
             return(
-                <Class classCode={proj.classCode} className={proj.className} school={proj.school}/>
+                <Class classCode={classIn.classCode} className={classIn.className} school={classIn.school}/>
             )
         }
         )}
@@ -98,4 +96,34 @@ export interface JobInfo{
     startDate?:string
     endDate?:string
     description:string
+}
+
+// also needs styling
+function Job(props:JobInfo){
+    return(
+    <Grid.Col>
+        <Card>
+            <Stack spacing="xs">
+            <Text>{props.organization}</Text>
+            <Text>{props.position}</Text>
+            <Text>{props.startDate} - {props.endDate}</Text>
+            <Text>{props.description}</Text>
+            </Stack>
+        </Card>
+    </Grid.Col>
+    )
+}
+
+// when code is getting this repeatable, a bit eh
+function JobList(props:{jobs:Array<JobInfo>}){
+    return(
+    <Grid>
+        {props.jobs.map((jobIn)=>{
+            return(
+                <Job organization={jobIn.organization} position={jobIn.position} startDate={jobIn.startDate} endDate={jobIn.endDate} description={jobIn.description}/>
+            )
+        }
+        )}
+    </Grid>
+    )
 }
