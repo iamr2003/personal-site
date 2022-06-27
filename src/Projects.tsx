@@ -88,7 +88,7 @@ function LabelStyler(props:Label){
     )
   }
   
-  //being annoying with array in stuff, so switching back to normal js
+  //being annoying with array in stuff, so switching back to normal js---there is an easy normal way
   export function ProjectPanel(props){
     const mantineTheme = useMantineTheme();
     const dark = mantineTheme.colorScheme === 'dark';
