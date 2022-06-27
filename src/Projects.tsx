@@ -71,14 +71,11 @@ function LabelStyler(props:Label){
       </Grid.Col>
     )
   }
-  
-  interface ProjListInfo{
-    projs:Array<ProjInfo>
-  }
+
   
   // needs more styling on subcomponents, but it works
   // I want to take this away from grid, and make something less uniform and more dynamic(splitting into colums and letting them waterfall a bit)
-  function ProjectList(props:ProjListInfo){
+  function ProjectList(props:{projs:Array<ProjInfo>}){
     const projList = props.projs.map(Project);
   
     return (

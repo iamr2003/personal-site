@@ -61,6 +61,7 @@ export interface ClassInfo{
 classCode:string
 className:string
 school:string
+// logo maybe?
 }
 
 // now needs styling
@@ -78,11 +79,7 @@ function Class(props:ClassInfo){
     )
 }
 
-interface ClassListInfo{
-    classes:Array<ClassInfo>
-  }
-
-export function ClassList(props:ClassListInfo){
+export function ClassList(props:{classes:Array<ClassInfo>}){
     return(
     <Grid>
         {props.classes.map((proj)=>{
@@ -93,4 +90,12 @@ export function ClassList(props:ClassListInfo){
         )}
     </Grid>
     )
+}
+
+export interface JobInfo{
+    organization:string
+    position:string
+    startDate?:string
+    endDate?:string
+    description:string
 }

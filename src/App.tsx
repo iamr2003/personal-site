@@ -101,6 +101,7 @@ const education = [
   }
 ]
 
+// next is work xp
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
