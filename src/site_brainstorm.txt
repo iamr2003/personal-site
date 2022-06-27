@@ -63,6 +63,7 @@ Task list:
 - education list
     - classes, etc.
 
+
 - clean up theming(maybe later, defaults look good too)
 
 To compare:
