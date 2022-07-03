@@ -142,16 +142,25 @@ function App() {
           header={ 
           // need to freeze the header on scrolls, issue with them going on top of each other
           // fixed  position={{ top: 0, left: 0 }}
-          <Header height={60} p="xs" >
-            {/* make it my favorite icons later */}
-            <ActionIcon
-              variant="outline"
-              color={dark ? 'yellow' : 'blue'}
-              onClick={() => toggleColorScheme()}
-              title="Toggle color scheme"
-            >
-              {dark ? <Sun size={18} /> : <MoonStars size={18} />}
-            </ActionIcon>
+          <Header height={60} p="xs" fixed>
+            {/* make it my favorite icons later */} 
+            <Group>
+              <ActionIcon
+                variant="outline"
+                color={dark ? 'yellow' : 'blue'}
+                onClick={() => toggleColorScheme()}
+                title="Toggle color scheme"
+              >
+                {dark ? <Sun size={18} /> : <MoonStars size={18} />}
+              </ActionIcon>
+              {/* hacky solution to deal with putting tabs in the top */}
+              {/* I like the pills, do specific styling via styles API later*/}
+              <Tabs active={activeTab} onTabChange={setActiveTab}color={dark?"orange":"indigo"} variant="pills">
+                  <Tabs.Tab label="About"></Tabs.Tab>
+                  <Tabs.Tab label="Projects"></Tabs.Tab>
+                  <Tabs.Tab label="Experimental"></Tabs.Tab>
+              </Tabs>
+            </Group>
           </Header>
         }
           styles={(theme) => ({
@@ -170,7 +179,8 @@ function App() {
                 {/* <ProjectList projs={projsInput}></ProjectList> */}
                 <ProjectPanel projsInput={projsInput}></ProjectPanel>
               </Tabs.Tab>
-              <Tabs.Tab label="Experimental">Third tab content</Tabs.Tab>              
+              {/* first experiment, use border radius to make a weird animation */}
+              <Tabs.Tab label="Experimental">Deep Experiments in Progress!</Tabs.Tab>              
             </Tabs>
         </AppShell>
       </MantineProvider>

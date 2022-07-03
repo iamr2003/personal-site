@@ -72,3 +72,6 @@ https://rramboer.github.io/#
 https://danlliu.github.io/
     - ok I can do more than this one design-wise, info is inspirational
     - icons can be super helpful
+https://www.zolyo.me/
+    - made with pure react
+    - breaks on mobile(which is interesting, since he does app dev)
