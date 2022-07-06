@@ -3,7 +3,7 @@ import {AiFillLinkedin,AiFillGithub,AiFillWindows,AiFillApple,AiFillHtml5} from 
 import {FaUbuntu,FaFedora} from 'icons-react/fa';
 import {SiCplusplus,SiPython,SiJava,SiJavascript,SiCss3,SiLabview,SiBootstrap,SiFirebase,SiJquery,SiReact} from 'react-icons/si';
 
-
+// this whole page needs way more color
 export function Profile(props:{}){
     return(
     <Stack spacing="xs">
@@ -65,21 +65,20 @@ school:string
 // now needs styling
 function Class(props:ClassInfo){
     return(
-    <Grid.Col>
-        <Card>
+    <Grid.Col span={4}>
+        <Card radius="lg" shadow="sm" style={{maxWidth:"40ch",minHeight:"14ch"}}>
             <Stack spacing="xs">
-            <Text>{props.classCode}</Text>
-            <Text>{props.className}</Text>
-            <Text>{props.school}</Text>
+            <Title order={4}>{props.classCode}: {props.className}</Title>
+        <Text>{props.school}</Text> {/* I would like this to be at bottom more */}
             </Stack>
         </Card>
     </Grid.Col>
     )
 }
-
+// get the thing to wrap
 export function ClassList(props:{classes:Array<ClassInfo>}){
     return(
-    <Grid>
+    <Grid justify="center" grow style={{maxWidth:"60em"}}>
         {props.classes.map((classIn)=>{
             return(
                 <Class classCode={classIn.classCode} className={classIn.className} school={classIn.school}/>
@@ -101,8 +100,8 @@ export interface JobInfo{
 // also needs styling
 function Job(props:JobInfo){
     return(
-    <Grid.Col>
-        <Card>
+    <Grid.Col span={6}>
+        <Card radius={"lg"} style={{maxWidth:"60ch"}}>
             <Stack spacing="xs">
             <Text>{props.organization}</Text>
             <Text>{props.position}</Text>
@@ -115,9 +114,10 @@ function Job(props:JobInfo){
 }
 
 // when code is getting this repeatable, a bit eh
-function JobList(props:{jobs:Array<JobInfo>}){
+export function JobList(props:{jobs:Array<JobInfo>}){
     return(
-    <Grid>
+        // expanding beyond 60 em gets strange,need to fix
+    <Grid grow justify="center" style={{maxWidth:"60em"}}>
         {props.jobs.map((jobIn)=>{
             return(
                 <Job organization={jobIn.organization} position={jobIn.position} startDate={jobIn.startDate} endDate={jobIn.endDate} description={jobIn.description}/>

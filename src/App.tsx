@@ -1,4 +1,4 @@
-import { useState,FC, useContext } from 'react'
+import { useState,useEffect,useRef} from 'react'
 import logo from './logo.svg'
 import './App.css'
 import { Affix,AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox, useMantineColorScheme, useMantineTheme } from '@mantine/core';
@@ -6,7 +6,7 @@ import { MantineProvider, ColorScheme, Chip} from '@mantine/core';
 import { Sun, MoonStars} from 'tabler-icons-react';
 
 import {ProjectPanel,Label} from './Projects'
-import {Profile,ClassList} from './About'
+import {Profile,ClassList,JobList} from './About'
 
 // Manual inputs
 
@@ -101,7 +101,26 @@ const education = [
   }
 ]
 
+const work_xp = [
+  { //need to differentiate both times
+    organization: 'West Virginia University, Interactive Robotics Lab',
+    position:'Undergraduate Researcher',
+    startDate: 'June 2020',
+    endDate: 'October 2021',
+    description:'Robot-based pollination, more things, further more, ...'
+  },
+  {
+    organization: 'NSF REU, West Virginia University',
+    position:'Research Intern',
+    startDate: 'May 2022',
+    endDate: 'July 2022',
+    description:"Imitation Learning with Robotic Swarms"
+  }
+]
 // next is work xp
+// function scrolledToBottom() {
+//   if()
+// }
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
@@ -109,8 +128,55 @@ function App() {
     setColorScheme(value || (colorScheme == 'dark' ? 'light' : 'dark'));
   const dark = colorScheme === 'dark';
   
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
+  // console.log(elementRef.current?.clientHeight);
+  const listInnerRef = useRef(null);
 
+  // I can probably adjust this better for top and bottom
+  const [currentScroll, setCurrentScroll] = useState(-20);
+  const [scrollDirection, setScrollDirection] = useState('down');
+
+  // double event call issue -- do timing latch eventually
+  // continuous content is probably the actual way, I'm being stubborn tho
+  // const handleScroll = () => {
+  //   // console.log("scrolling");
+  //   const position = window.pageYOffset;
+  //   if (currentScroll == position) {
+  //     console.log('same',scrollDirection);
+  //     if(scrollDirection == 'down'){
+  //       setActiveTab((activeTab + 1)%3);
+  //     }
+  //     else if(scrollDirection == 'up'){
+  //       setActiveTab((activeTab - 1)%3);
+  //     }
+
+  //     // setScrollDirection('up'); //this case is going to be weird
+  //   }
+  //   else if (currentScroll < position) {
+  //     setScrollDirection('down');
+
+  //   }
+  //   else {
+  //     setScrollDirection('up');
+  //   }
+  //   setCurrentScroll(position);
+  // };
+  
+  // useEffect(() => {
+  //   window.addEventListener('wheel', handleScroll,{ passive: true });
+  //   return () => {
+  //     window.removeEventListener('wheel', handleScroll);
+  //   }
+  // });
+  // console.log("scroll position",scrollPosition);
+  // console.log("Inner height:",window.innerHeight);
+  // if(scrollPosition >= elementRef.current?.clientHeight - window.innerHeight) {
+  //   // console.log('scrolled to bottom');
+  //   // if (activeTab <2){
+  //   //   // setActiveTab(activeTab + 1);
+  //   //   setScrollPosition(0);
+  //   // }
+  // }
 
   return (
       <MantineProvider
@@ -136,7 +202,7 @@ function App() {
           },        
           }}
       >
-        <AppShell
+        <AppShell 
           padding="md"
           // navbar={<Nav/>}
           header={ 
@@ -167,6 +233,7 @@ function App() {
             main: { backgroundColor: theme.colorScheme == 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
           })}
         >
+          {/* <div ref={listInnerRef} onScroll={onScroll} key="specific"> */}
             {/* I'm not sure if I like this layout, can switch it a bit later, maybe to the vertical scrolling style */}
             <Tabs active={activeTab} onTabChange={setActiveTab} color={dark?"orange":"indigo"}>
               <Tabs.Tab label="About">
@@ -174,6 +241,8 @@ function App() {
                 <Profile/>
                 <Title order={3}>Education:</Title>
                 <ClassList classes={education}/>
+                <Title order={3}>Work Experience:</Title>
+                <JobList jobs={work_xp}/>
               </Tabs.Tab>
               <Tabs.Tab label="Projects">
                 {/* <ProjectList projs={projsInput}></ProjectList> */}
@@ -182,6 +251,7 @@ function App() {
               {/* first experiment, use border radius to make a weird animation */}
               <Tabs.Tab label="Experimental">Deep Experiments in Progress!</Tabs.Tab>              
             </Tabs>
+            {/* </div> */}
         </AppShell>
       </MantineProvider>
   )

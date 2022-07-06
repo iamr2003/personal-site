@@ -51,17 +51,21 @@ Task list:
 - Across the Top navbar(no URL change for now)
     - implemented with tabs, will want to eventually be button based, maybe vertical nav
 - project list of cards
-    - I wanted some kind of sorting, idk exactly how yet
-    - Title(linked), start date, end date(maybe cleanup), body, image
-    - role
-    - clipping
-    - milking school projects more too
-    - also list older projects too
-    - figure out a recency biaser/something
+    - pretty good, more figure out a way to shorten, or split pages off
+    - maybe some video support
 
 - A nice header
-- education list
-    - classes, etc.
+    - probably should have my name in it
+
+- style edu and job cards, probably make a lot smaller
+
+-figure out scrolling handle, to swap states if scroll to bottom
+https://stackoverflow.com/questions/3962558/javascript-detect-scroll-end
+https://thewebdev.info/2021/09/05/how-to-get-scroll-position-with-react/
+https://thewebdev.info/2021/09/25/how-to-detect-when-a-user-scrolls-to-bottom-of-div-with-react/
+
+mmm scrollArea might be useful, better than my current fixed hack
+
 
 
 - clean up theming(maybe later, defaults look good too)
