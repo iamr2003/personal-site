@@ -101,7 +101,15 @@ const education = [
   }
 ]
 
+// let's make sure to link Gu/pereira as advisor
 const work_xp = [
+  {
+    organization: 'NSF REU, West Virginia University',
+    position:'Research Intern',
+    startDate: 'May 2022',
+    endDate: 'July 2022',
+    description:"Imitation Learning with Robotic Swarms"
+  },
   { //need to differentiate both times
     organization: 'West Virginia University, Interactive Robotics Lab',
     position:'Undergraduate Researcher',
@@ -109,13 +117,6 @@ const work_xp = [
     endDate: 'October 2021',
     description:'Robot-based pollination, more things, further more, ...'
   },
-  {
-    organization: 'NSF REU, West Virginia University',
-    position:'Research Intern',
-    startDate: 'May 2022',
-    endDate: 'July 2022',
-    description:"Imitation Learning with Robotic Swarms"
-  }
 ]
 // next is work xp
 // function scrolledToBottom() {

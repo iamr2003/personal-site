@@ -79,7 +79,7 @@ function LabelStyler(props:Label){
     const projList = props.projs.map(Project);
   
     return (
-      <Grid grow gutter={"xs"} justify="flex-end">
+      <Grid grow gutter={"xs"} justify="center">
         {projList}
       </Grid>
     )

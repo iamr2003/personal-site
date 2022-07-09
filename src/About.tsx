@@ -16,36 +16,48 @@ export function Profile(props:{}){
       {/* Github and linked in */}
       <Group>
         {/* make an anchor no style  component*/}
-        {/* ADD A NORMAL RESUME LINK */}
-      <a href='https://www.linkedin.com/in/iamr2003/' style={{ textDecoration: 'none',color:'inherit' }}><AiFillLinkedin size={70}/></a>
+        {/* maybe a email icon*/}
+        {/* need to figure out how to do white backgrounds on icons*/}
+      <a href='https://www.linkedin.com/in/iamr2003/' style={{ textDecoration: 'none',color:'inherit' }}><AiFillLinkedin size={70} color="#0A66C2"/></a>
       <a href='https://github.com/iamr2003' style={{ textDecoration: 'none',color:'inherit' }}><AiFillGithub size={70}/></a>
-      <Text>RESUME</Text>
+      <a href='https://docs.google.com/document/d/1u5HjXHUiJ0p5Jyi-8QZgck5e4Q8vj06T/edit?usp=sharing&ouid=106784774117684805101&rtpof=true&sd=true' style={{ textDecoration: 'none',color:'inherit' }}><Text>RESUME</Text></a>
       </Group>
   
       {/* OS's, skills, frameworks(would like links on icons eventually) */}
       {/* I'm gonna need colors eh, probably a whole icon component */}
+        {/* I could automate this, but it's just a single list so I'm not that worried rn */}
+        {/* I'll create a class with links eventually too */}
+
       <Group>
         {/* add garuda */}
-        <Text>OSs:</Text><AiFillWindows size={30}/><AiFillApple size={30}/><FaUbuntu size={30}/><FaFedora size={30}/>
+        <Text>OSs:</Text>
+        <AiFillWindows size={30} color="#0078D6"/>
+        <AiFillApple size={30}/>
+        <FaUbuntu size={30} color="#E95420" />
+        <FaFedora size={30} color="#51A2DA"/>
       </Group>
       
       {/* need to find a lot of these on their own */}
       {/* consider eventually a filtering of the projects by these icons */}
       <Group>
         <Text>Languages:</Text>
-        <SiCplusplus size={30}/>
-        <SiPython size={30}/>
+        <SiCplusplus size={30} color="#00599C" />
+        <SiPython size={30} color="#3776AB"/>
         <SiJava size={30}/>
-        <SiJavascript size={30}/>
-        <AiFillHtml5 size={38}/>
-        <SiCss3 size={30}/>
+        <SiJavascript size={30} color="#F7DF1E"/>
+        <AiFillHtml5 size={38} color="#E34F26"/>
+        <SiCss3 size={30} color="#1572B6"/>
         {/* Do I even include? */}
-        <SiLabview size={30}/> 
+        <SiLabview size={30} color="#FFDB00"/> 
       </Group>
       
       <Group>
         {/* add ROS,Gazebo */}
-        <Text>Frameworks & Tools:</Text> <SiBootstrap size={30}/><SiFirebase size={30}/><SiJquery size={30}/><SiReact size={30}/>
+        <Text>Frameworks & Tools:</Text> 
+        <SiBootstrap size={30} color="#7952B3"/>
+        <SiFirebase size={30} color="#FFCA28"/>
+        <SiJquery size={30} color="#0769AD"/>
+        <SiReact size={30} color="#61DAFB"/>
       </Group>
         
       {/* Add some WORK info */}
@@ -103,8 +115,8 @@ function Job(props:JobInfo){
     <Grid.Col span={6}>
         <Card radius={"lg"} style={{maxWidth:"60ch"}}>
             <Stack spacing="xs">
+            <Title order={4}>{props.position}</Title>
             <Text>{props.organization}</Text>
-            <Text>{props.position}</Text>
             <Text>{props.startDate} - {props.endDate}</Text>
             <Text>{props.description}</Text>
             </Stack>
