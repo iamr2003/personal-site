@@ -1,0 +1,33 @@
+/* if I came up with a random way to do this it'd be more fun */
+@keyframes borderRadiusTransitions {
+    0% {
+        border-radius: 76% 24% 48% 52% / 37% 19% 81% 63%;
+    }
+
+    25% {
+        border-radius: 13% 87% 16% 84% / 2% 73% 27% 98%;
+    }
+
+    50% {
+        border-radius: 19% 81% 85% 15% / 82% 19% 81% 18%;
+    }
+
+    75% {
+        border-radius: 13% 87% 16% 84% / 54% 54% 46% 46%;
+    }
+
+    100% {
+        border-radius: 76% 24% 48% 52% / 37% 19% 81% 63%;
+    }
+}
+
+
+.BorderRadiusExperiment {
+    /* border-radius:76% 24% 48% 52% / 37% 19% 81% 63%; */
+    animation-name: borderRadiusTransitions;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    background: linear-gradient(orange, purple);
+    aspect-ratio: 1;
+    max-width: 20em;
+}

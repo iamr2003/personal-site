@@ -5,8 +5,9 @@ import { Affix,AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Titl
 import { MantineProvider, ColorScheme, Chip} from '@mantine/core';
 import { Sun, MoonStars} from 'tabler-icons-react';
 
-import {ProjectPanel,Label} from './Projects'
-import {Profile,ClassList,JobList} from './About'
+import {ProjectPanel,Label} from './Projects';
+import {Profile,ClassList,JobList} from './About';
+import { BorderRadiusAnimation } from './Experiments';
 
 // Manual inputs
 
@@ -250,7 +251,10 @@ function App() {
                 <ProjectPanel projsInput={projsInput}></ProjectPanel>
               </Tabs.Tab>
               {/* first experiment, use border radius to make a weird animation */}
-              <Tabs.Tab label="Experimental">Deep Experiments in Progress!</Tabs.Tab>              
+              <Tabs.Tab label="Experimental">
+              <Title order={4}>Deep Experiments in Progress!</Title>
+               <BorderRadiusAnimation/>
+              </Tabs.Tab>              
             </Tabs>
             {/* </div> */}
         </AppShell>
