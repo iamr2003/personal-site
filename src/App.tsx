@@ -15,7 +15,16 @@ import { BorderRadiusAnimation } from './Experiments';
 // original order is by recency
 // in general, descriptions are too long, abstract out to pages, more images = better
 // goal is to create a forever listicle, with some amount of filtering
+// quite a bit of formatting work needed
 const projsInput = [
+  {
+    title:'Swarm Imitation Learning', 
+    imageURL:'images/PicOfSite.png', //get a nice gif here
+    projectURL: '', //let's move things to a dedicated repo too
+    body: // can workshop this a bit, Combines a variety of simpler methods(genetic algorithm, linear regression, nonlinear optimization) to model a variety of aspects. was included, might just need a page
+    "Built a machine learning pipeline to observe a swarm and imitate it\'s local controllers to recreate the emergent behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation, conducted at WVU.",
+    labels:[Label.Web]
+  },
   {
     title:'Personal Site',
     imageURL:'images/PicOfSite.png',
@@ -34,21 +43,21 @@ const projsInput = [
     title:'Simulating Robot-Based Pollination',
     imageURL: 'images/PollinationSimPics.png',
     projectURL: 'https://github.com/wvu-robotics/workspace-pollination-sim',
-    body:'WORDS is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
+    body:'High-fideliy simulation to test pollination robot during the COVID-19 pandemic. Built with ROS+Gazebo. Research out of WVU Interactive Robotics Lab.',
     labels:[Label.Robotics]
   },
   {
     title:'FRC Autonomous Development',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'dummy.com',
-    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
+    body:'Programmed a robot to track a target and shoot balls while moving, to compete in FIRST Robotics. Written in LabView, utilized computer vision and combinations of PID control with lookup tables.',
     labels:[Label.Robotics]
   },
   {
     title:'Retaining Ampitheater',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'https://docs.google.com/presentation/d/1aP3j4olLRgYe2YNnLTBH73c660270TyJfuQBbBDXpQ4/edit?usp=sharing',
-    body:'This is a nice time to explore testing with larger amounts of text, jsut to see how different things respond',
+    body:'Built a Retaining Wall capped with benches for Eagle Scout Project. 18\' by 10\' could seat 60 people packed, or 45 socially distanced.',
     labels:[Label.Misc]
   },
 
@@ -57,33 +66,49 @@ const projsInput = [
     title:'Seam Carving Algorithm',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: '',
-    body:'EECS 280 Project: Implemented seam carving algorithm to resize images intelligently, eliminating less important information first.',
+    body:'EECS 280 Project: Implemented seam carving algorithm to resize images intelligently, eliminating less important information first. Written in C++.',
     labels:[Label.School]    
   },
   {
     title:'Piazza Post Classification',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: '',
-    body:'EECS 280 Project: Utilized a simple bayesian classifier to do natural language processing and determine a post\'s topic based on the body.',
+    body:'EECS 280 Project: Utilized a simple bayesian classifier to do natural language processing and determine a post\'s topic based on the body. Written in C++.',
     labels:[Label.School]    
   },
   {
     title:'SQL recreation',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: '',
-    body:'EECS 281 Project: Implement a portion of the Standard Querying Language(SQL) to create, query, and modify a database.',
+    body:'EECS 281 Project: Implement a portion of the Standard Querying Language(SQL) to create, query, and modify a database. Written in C++.',
     labels:[Label.School]    
   },
   {
     title:'FRC Scouting Data Acquistion and Analysis System',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: 'dummy.com',
-    body:' Used to gather data about other teams at competition, and develop strategic insights. Written with JS, JQuery, Bootstrap and Firebase, integrated with Google Sheets.',
+    body:' Used to gather data about other teams at competition, and develop strategic insights in FIRST Robotics. Written with JS, JQuery, Bootstrap and Firebase, integrated with Google Sheets.',
     labels:[Label.Web]
   }
 ]
 
 const education = [
+  // Fall 2022 Classes, add Stats maybe too- put it in when semester starts
+  // {
+  //   classCode: 'Math 217',
+  //   className: 'Linear Algebra',
+  //   school: 'University of Michigan'
+  // },  
+  // {
+  //   classCode: 'EECS 376',
+  //   className: 'Foundations in Computer Science',
+  //   school: 'University of Michigan'
+  // },  
+  // {
+  //   classCode: 'EECS 370',
+  //   className: 'Intro to Computer Organization',
+  //   school: 'University of Michigan'
+  // },  
   {
     classCode: 'EECS 281',
     className: 'Data Structures and Algorithms',
@@ -91,7 +116,7 @@ const education = [
   },
   {
     classCode: 'Math 215',
-    className: 'Linear Algebra',
+    className: 'Multivariable Calculus',
     school: 'University of Michigan'
 
   },

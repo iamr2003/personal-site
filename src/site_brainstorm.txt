@@ -79,3 +79,8 @@ https://danlliu.github.io/
 https://www.zolyo.me/
     - made with pure react
     - breaks on mobile(which is interesting, since he does app dev)
+
+
+Next Steps:
+- better sorting, ability to index projects by language
+- add dates as well to project sorting

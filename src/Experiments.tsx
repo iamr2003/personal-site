@@ -9,7 +9,7 @@ export function BorderRadiusAnimation(){
 
     return (
         <div>
-            Border Radius Manipulation:
+            {/* Border Radius CSS Animation: */}
             <div className="BorderRadiusExperiment" style={{}}>
             </div>
         </div>

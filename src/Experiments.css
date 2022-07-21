@@ -27,7 +27,8 @@
     animation-name: borderRadiusTransitions;
     animation-duration: 20s;
     animation-iteration-count: infinite;
-    background: linear-gradient(orange, purple);
+    /* eventuall make rotate */
+    background: linear-gradient(orange, purple); 
     aspect-ratio: 1;
     max-width: 20em;
 }
