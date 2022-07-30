@@ -6,7 +6,8 @@ export enum Label{
     Web = 'indigo', //should maybe break this up
     Robotics = 'yellow',
     Misc = 'violet',
-    School = 'green'
+    School = 'green',
+    Research = 'red',
     // HighSchool = 'lime' I don't like this label, who care
   }
   
@@ -49,7 +50,7 @@ function LabelStyler(props:Label){
   //not sure which notation is better, this or the => one
   export function Project(props:ProjInfo){
     return (
-      <Grid.Col span={5} style={{maxWidth:"50ch"}}>
+      <Grid.Col span={6} style={{maxWidth:"50ch"}}>
         <a href={props.projectURL} style={{ textDecoration: 'none',color:'inherit' }}>
           {/* style = {{minHeight:"400px"}} */}
         <Card m ="lg" radius="lg" shadow="sm" style={{minHeight:"25em"}}>
@@ -63,8 +64,8 @@ function LabelStyler(props:Label){
   
             <Title order={3}>{props.title}</Title>
   
-          <ListOfLabels list={props.labels}></ListOfLabels>
           <Text>{props.body}</Text>
+          <ListOfLabels list={props.labels}></ListOfLabels>
         </Card>
         </a>
         {/* </div> */}

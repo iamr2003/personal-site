@@ -18,12 +18,12 @@ import { BorderRadiusAnimation } from './Experiments';
 // quite a bit of formatting work needed
 const projsInput = [
   {
-    title:'Swarm Imitation Learning', 
-    imageURL:'images/PicOfSite.png', //get a nice gif here
+    title:'Swarm Imitation Learning', //might clean up name for real learning people-- technically behavioral cloning
+    imageURL:'images/cutcherryPickedBest.gif', //get a nice gif here-- (alternatives of fish or the robots)
     projectURL: '', //let's move things to a dedicated repo too
     body: // can workshop this a bit, Combines a variety of simpler methods(genetic algorithm, linear regression, nonlinear optimization) to model a variety of aspects. was included, might just need a page
     "Built a machine learning pipeline to observe a swarm and imitate it\'s local controllers to recreate the emergent behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation, conducted at WVU.",
-    labels:[Label.Web]
+    labels:[Label.Robotics,Label.Research]
   },
   {
     title:'Personal Site',
@@ -41,10 +41,10 @@ const projsInput = [
   },
   {
     title:'Simulating Robot-Based Pollination',
-    imageURL: 'images/PollinationSimPics.png',
-    projectURL: 'https://github.com/wvu-robotics/workspace-pollination-sim',
+    imageURL: 'images/PollinationSimPics.png', //just pick bottom image
+    projectURL: 'https://github.com/wvu-robotics/workspace-pollination-sim',  
     body:'High-fideliy simulation to test pollination robot during the COVID-19 pandemic. Built with ROS+Gazebo. Research out of WVU Interactive Robotics Lab.',
-    labels:[Label.Robotics]
+    labels:[Label.Robotics, Label.Research]
   },
   {
     title:'FRC Autonomous Development',
@@ -238,11 +238,13 @@ function App() {
           <Header height={60} p="xs" fixed>
             {/* make it my favorite icons later */} 
             <Group>
+              {/* Icon is a bit eh now */}
               <ActionIcon
                 variant="outline"
                 color={dark ? 'yellow' : 'blue'}
                 onClick={() => toggleColorScheme()}
                 title="Toggle color scheme"
+                size={24} 
               >
                 {dark ? <Sun size={18} /> : <MoonStars size={18} />}
               </ActionIcon>

@@ -15,3 +15,5 @@ export function BorderRadiusAnimation(){
         </div>
     )
 }
+
+// next idea, do a custom svg graphic
