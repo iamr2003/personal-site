@@ -118,7 +118,7 @@ function Job(props:JobInfo){
             <Title order={4}>{props.position}</Title>
             <Text>{props.organization}</Text>
             <Text>{props.startDate} - {props.endDate}</Text>
-            <Text>{props.description}</Text>
+            {/* <Text>{props.description}</Text> */}
             </Stack>
         </Card>
     </Grid.Col>

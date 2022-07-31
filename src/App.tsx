@@ -22,7 +22,7 @@ const projsInput = [
     imageURL:'images/cutcherryPickedBest.gif', //get a nice gif here-- (alternatives of fish or the robots)
     projectURL: '', //let's move things to a dedicated repo too
     body: // can workshop this a bit, Combines a variety of simpler methods(genetic algorithm, linear regression, nonlinear optimization) to model a variety of aspects. was included, might just need a page
-    "Built a machine learning pipeline to observe a swarm and imitate it\'s local controllers to recreate the emergent behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation, conducted at WVU.",
+    "Built a machine learning pipeline to observe a swarm and imitate it\'s local controllers to recreate the emergent behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation.",
     labels:[Label.Robotics,Label.Research]
   },
   {
@@ -48,14 +48,14 @@ const projsInput = [
   },
   {
     title:'FRC Autonomous Development',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    imageURL: 'images/marsShootingWhileMoving.gif',
     projectURL: 'dummy.com',
     body:'Programmed a robot to track a target and shoot balls while moving, to compete in FIRST Robotics. Written in LabView, utilized computer vision and combinations of PID control with lookup tables.',
     labels:[Label.Robotics]
   },
   {
     title:'Retaining Ampitheater',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    imageURL: 'images/RetainingAmpitheater.jpg',
     projectURL: 'https://docs.google.com/presentation/d/1aP3j4olLRgYe2YNnLTBH73c660270TyJfuQBbBDXpQ4/edit?usp=sharing',
     body:'Built a Retaining Wall capped with benches for Eagle Scout Project. 18\' by 10\' could seat 60 people packed, or 45 socially distanced.',
     labels:[Label.Misc]
@@ -78,14 +78,14 @@ const projsInput = [
   },
   {
     title:'SQL recreation',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    imageURL: 'images/sillyQLlogo.svg',
     projectURL: '',
     body:'EECS 281 Project: Implement a portion of the Standard Querying Language(SQL) to create, query, and modify a database. Written in C++.',
     labels:[Label.School]    
   },
   {
     title:'FRC Scouting Data Acquistion and Analysis System',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    imageURL: 'images/marsScouting2020.png',
     projectURL: 'dummy.com',
     body:' Used to gather data about other teams at competition, and develop strategic insights in FIRST Robotics. Written with JS, JQuery, Bootstrap and Firebase, integrated with Google Sheets.',
     labels:[Label.Web]
@@ -128,20 +128,21 @@ const education = [
 ]
 
 // let's make sure to link Gu/pereira as advisor
+// I think I will display without descriptions for right now, since not great formatting 
 const work_xp = [
   {
-    organization: 'NSF REU, West Virginia University',
-    position:'Research Intern',
+    organization: 'National Science Foundation',
+    position:'REU Student Researcher',
     startDate: 'May 2022',
     endDate: 'July 2022',
-    description:"Imitation Learning with Robotic Swarms"
+    description:"Imitated Swarm behavior using machine learning methods."
   },
   { //need to differentiate both times
     organization: 'West Virginia University, Interactive Robotics Lab',
     position:'Undergraduate Researcher',
     startDate: 'June 2020',
     endDate: 'October 2021',
-    description:'Robot-based pollination, more things, further more, ...'
+    description:'Wrote simulations to assist research on a variety of projects, especially robot-based pollination. Developed control code for Fast Traverse Robot'
   },
 ]
 // next is work xp

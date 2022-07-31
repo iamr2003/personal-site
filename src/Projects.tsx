@@ -53,6 +53,7 @@ function LabelStyler(props:Label){
       <Grid.Col span={6} style={{maxWidth:"50ch"}}>
         <a href={props.projectURL} style={{ textDecoration: 'none',color:'inherit' }}>
           {/* style = {{minHeight:"400px"}} */}
+        {/* could do a hard box size on the card too */}
         <Card m ="lg" radius="lg" shadow="sm" style={{minHeight:"25em"}}>
           <Card.Section>
             {/* Need to cap this better, maybe choose different images, or learn to tile better */}

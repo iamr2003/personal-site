@@ -82,5 +82,6 @@ https://www.zolyo.me/
 
 
 Next Steps:
-- better sorting, ability to index projects by language
+- routing, ability to tag more media with projects
+- better sorting, ability to index projects by language, clipping
 - add dates as well to project sorting
