@@ -19,10 +19,10 @@ import { BorderRadiusAnimation } from './Experiments';
 const projsInput = [
   {
     title:'Swarm Imitation Learning', //might clean up name for real learning people-- technically behavioral cloning
-    imageURL:'images/cutcherryPickedBest.gif', //get a nice gif here-- (alternatives of fish or the robots)
+    imageURL:'images/cutcherryPickedBest.gif', //get a nice gif here-- (alternatives of fish or the robots or just Boids)
     projectURL: '', //let's move things to a dedicated repo too
     body: // can workshop this a bit, Combines a variety of simpler methods(genetic algorithm, linear regression, nonlinear optimization) to model a variety of aspects. was included, might just need a page
-    "Built a machine learning pipeline to observe a swarm and imitate it\'s local controllers to recreate the emergent behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation.",
+    "Machine learning pipeline to observe a swarm and imitate its local controllers to recreate the global behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation.",
     labels:[Label.Robotics,Label.Research]
   },
   {
@@ -36,12 +36,12 @@ const projsInput = [
     title:'Fastr Food',
     imageURL:'images/Fastr_Food_Cropped.png',
     projectURL: 'https://devpost.com/software/fastr-food',
-    body:'MHACKS 14 Submission. Webapp to crowdsource dining hall wait times, and factor in commute distances to recommend locations. Built with Firebase and Bootrap.',
+    body:'MHACKS 14 Submission. Webapp to crowdsource dining hall wait times, and factor in commute distances to recommend locations. Built with Firebase and Bootstrap.',
     labels:[Label.Web]
   },
   {
     title:'Simulating Robot-Based Pollination',
-    imageURL: 'images/PollinationSimPics.png', //just pick bottom image
+    imageURL: 'images/PollinationReCut.png', //just pick bottom image
     projectURL: 'https://github.com/wvu-robotics/workspace-pollination-sim',  
     body:'High-fideliy simulation to test pollination robot during the COVID-19 pandemic. Built with ROS+Gazebo. Research out of WVU Interactive Robotics Lab.',
     labels:[Label.Robotics, Label.Research]
@@ -49,7 +49,7 @@ const projsInput = [
   {
     title:'FRC Autonomous Development',
     imageURL: 'images/marsShootingWhileMoving.gif',
-    projectURL: 'dummy.com',
+    projectURL: '',
     body:'Programmed a robot to track a target and shoot balls while moving, to compete in FIRST Robotics. Written in LabView, utilized computer vision and combinations of PID control with lookup tables.',
     labels:[Label.Robotics]
   },
@@ -71,7 +71,7 @@ const projsInput = [
   },
   {
     title:'Piazza Post Classification',
-    imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
+    imageURL: 'images/piazzaPic.png',
     projectURL: '',
     body:'EECS 280 Project: Utilized a simple bayesian classifier to do natural language processing and determine a post\'s topic based on the body. Written in C++.',
     labels:[Label.School]    
@@ -86,7 +86,7 @@ const projsInput = [
   {
     title:'FRC Scouting Data Acquistion and Analysis System',
     imageURL: 'images/marsScouting2020.png',
-    projectURL: 'dummy.com',
+    projectURL: 'https://github.com/MARSProgramming/Scouting-2020',
     body:' Used to gather data about other teams at competition, and develop strategic insights in FIRST Robotics. Written with JS, JQuery, Bootstrap and Firebase, integrated with Google Sheets.',
     labels:[Label.Web]
   }
