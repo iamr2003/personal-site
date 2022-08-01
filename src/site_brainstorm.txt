@@ -79,9 +79,15 @@ https://danlliu.github.io/
 https://www.zolyo.me/
     - made with pure react
     - breaks on mobile(which is interesting, since he does app dev)
+https://www.pbb.wtf/
+    - probably part of my endgame
 
 
 Next Steps:
 - routing, ability to tag more media with projects
 - better sorting, ability to index projects by language, clipping
 - add dates as well to project sorting
+
+To release:
+- final card alignment stuff
+- some tweaks to icons and final gifs
