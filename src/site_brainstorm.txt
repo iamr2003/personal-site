@@ -90,4 +90,4 @@ Next Steps:
 
 To release:
 - final card alignment stuff
-- some tweaks to icons and final gifs
+- some tweaks to icons and final gifs--- DONE

@@ -53,11 +53,14 @@ function LabelStyler(props:Label){
       <Grid.Col span={6} style={{maxWidth:"50ch"}}>
         <a href={props.projectURL} style={{ textDecoration: 'none',color:'inherit' }}>
           {/* style = {{minHeight:"400px"}} */}
-        {/* could do a hard box size on the card too */}
-        <Card m ="lg" radius="lg" shadow="sm" style={{minHeight:"25em"}}>
+        {/* could do a hard box si */}
+
+        {/* what I want is to do minHeight by row */}
+        {/* style={{minHeight:"10em"}} */}
+        <Card  radius="lg" shadow="sm" > 
           <Card.Section>
             {/* Need to cap this better, maybe choose different images, or learn to tile better */}
-            <AspectRatio ratio={1.3/1} sx={{ maxWidth: "50ch" }} mx="auto">
+            <AspectRatio ratio={1.35/1} sx={{ maxWidth: "50ch",minWidth:"30ch" }} mx="auto">
             <Image src={props.imageURL}></Image>
             </AspectRatio>
           </Card.Section>
@@ -66,6 +69,7 @@ function LabelStyler(props:Label){
             <Title order={3}>{props.title}</Title>
   
           <Text>{props.body}</Text>
+          
           <ListOfLabels list={props.labels}></ListOfLabels>
         </Card>
         </a>
@@ -81,7 +85,7 @@ function LabelStyler(props:Label){
     const projList = props.projs.map(Project);
   
     return (
-      <Grid grow gutter={"xs"} justify="center">
+      <Grid gutter={"xl"} justify="center" align="stretch">
         {projList}
       </Grid>
     )
@@ -120,7 +124,7 @@ function LabelStyler(props:Label){
     return (
       <>
       {/* need to style this card more */}
-      <Group position='center' >
+      <Group position='center' p="xs" >
       <Chip color ={dark?"yellow":"indigo"} checked={robotics} onChange={() =>setRobotics(!robotics)}>Robotics</Chip>
       <Chip color ={dark?"yellow":"indigo"} checked={web} onChange={() =>setWeb(!web)}>Web</Chip>
       <Chip color ={dark?"yellow":"indigo"} checked={misc} onChange={() =>setMisc(!misc)}>Misc</Chip>

@@ -20,7 +20,7 @@ export function Profile(props:{}){
         {/* need to figure out how to do white backgrounds on icons*/}
       <a href='https://www.linkedin.com/in/iamr2003/' style={{ textDecoration: 'none',color:'inherit' }}><AiFillLinkedin size={70} color="#0A66C2"/></a>
       <a href='https://github.com/iamr2003' style={{ textDecoration: 'none',color:'inherit' }}><AiFillGithub size={70}/></a>
-      <a href='https://docs.google.com/document/d/1u5HjXHUiJ0p5Jyi-8QZgck5e4Q8vj06T/edit?usp=sharing&ouid=106784774117684805101&rtpof=true&sd=true' style={{ textDecoration: 'none',color:'inherit' }}><Text>RESUME</Text></a>
+      <Text style={{fontSize:'3rem'}} weight={600} component="a" href="https://docs.google.com/document/d/1u5HjXHUiJ0p5Jyi-8QZgck5e4Q8vj06T/edit?usp=sharing&ouid=106784774117684805101&rtpof=true&sd=true">CV</Text>
       </Group>
   
       {/* OS's, skills, frameworks(would like links on icons eventually) */}

@@ -19,10 +19,10 @@ import { BorderRadiusAnimation } from './Experiments';
 const projsInput = [
   {
     title:'Swarm Imitation Learning', //might clean up name for real learning people-- technically behavioral cloning
-    imageURL:'images/cutcherryPickedBest.gif', //get a nice gif here-- (alternatives of fish or the robots or just Boids)
+    imageURL:'images/swarmBoundaryCircling.gif', //get a nice gif here-- (alternatives of fish or the robots or just Boids)
     projectURL: '', //let's move things to a dedicated repo too
     body: // can workshop this a bit, Combines a variety of simpler methods(genetic algorithm, linear regression, nonlinear optimization) to model a variety of aspects. was included, might just need a page
-    "Machine learning pipeline to observe a swarm and imitate its local controllers to recreate the global behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation.",
+    "Machine learning pipeline to imitate a swarm's behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation.",
     labels:[Label.Robotics,Label.Research]
   },
   {
@@ -50,7 +50,7 @@ const projsInput = [
     title:'FRC Autonomous Development',
     imageURL: 'images/marsShootingWhileMoving.gif',
     projectURL: '',
-    body:'Programmed a robot to track a target and shoot balls while moving, to compete in FIRST Robotics. Written in LabView, utilized computer vision and combinations of PID control with lookup tables.',
+    body:'Programmed a robot to track and shoot balls in target while moving, to compete in FIRST Robotics. Written in LabView, utilized computer vision and PID control with lookup tables.',
     labels:[Label.Robotics]
   },
   {
