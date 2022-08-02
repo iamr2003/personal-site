@@ -56,7 +56,6 @@ function LabelStyler(props:Label){
         {/* could do a hard box si */}
 
         {/* what I want is to do minHeight by row */}
-        {/* style={{minHeight:"10em"}} */}
         <Card  radius="lg" shadow="sm" > 
           <Card.Section>
             {/* Need to cap this better, maybe choose different images, or learn to tile better */}
@@ -85,7 +84,7 @@ function LabelStyler(props:Label){
     const projList = props.projs.map(Project);
   
     return (
-      <Grid gutter={"xl"} justify="center" align="stretch">
+      <Grid gutter={"lg"} justify="center" align="stretch">
         {projList}
       </Grid>
     )
