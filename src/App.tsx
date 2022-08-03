@@ -237,18 +237,8 @@ function App() {
           // need to freeze the header on scrolls, issue with them going on top of each other
           // fixed  position={{ top: 0, left: 0 }}
           <Header height={60} p="xs" fixed>
-            {/* make it my favorite icons later */}
             <Group>
-              {/* Icon is a bit eh now */}
-              <ActionIcon
-                variant="outline"
-                color={dark ? 'yellow' : 'blue'}
-                onClick={() => toggleColorScheme()}
-                title="Toggle color scheme"
-                size={24}
-              >
-                {dark ? <Sun size={18} /> : <MoonStars size={18} />}
-              </ActionIcon>
+              {/* these need to shrink with size I think */}
               {/* hacky solution to deal with putting tabs in the top */}
               {/* I like the pills, do specific styling via styles API later*/}
               <Tabs value={activeTab} onTabChange={setActiveTab} color={dark ? "gray" : "indigo"} variant="pills">
@@ -258,6 +248,16 @@ function App() {
                   <Tabs.Tab value="Experimental">Experimental</Tabs.Tab>
                 </Tabs.List>
               </Tabs>
+              {/* optimally want this on the far right, I'll figure out later */}
+              <ActionIcon
+                variant="outline"
+                color={dark ? 'yellow' : 'blue'}
+                onClick={() => toggleColorScheme()}
+                title="Toggle color scheme"
+                size={24}
+              >
+                {dark ? <Sun size={18} /> : <MoonStars size={18} />}
+              </ActionIcon>
             </Group>
           </Header>
         }
@@ -272,12 +272,12 @@ function App() {
           <Tabs.Panel value="About">
             {/* This looks kinda disgusting, should use avatar for face */}
             <Profile />
-            <Title order={3}>Education:</Title>
+            <Title order={3} mb="xs">Education:</Title>
             <ClassList classes={education} />
-            <Title order={3}>Work Experience:</Title>
+            <Title order={3} mt="xs" mb="xs">Work Experience:</Title>
             <JobList jobs={work_xp} />
           </Tabs.Panel>
-          <Tabs.Panel value="Projects">
+          <Tabs.Panel value="Projects" >
             {/* <ProjectList projs={projsInput}></ProjectList> */}
             <ProjectPanel projsInput={projsInput}></ProjectPanel>
           </Tabs.Panel>

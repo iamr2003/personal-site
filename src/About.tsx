@@ -90,7 +90,7 @@ function Class(props:ClassInfo){
 // get the thing to wrap
 export function ClassList(props:{classes:Array<ClassInfo>}){
     return(
-    <Grid justify="center" grow style={{maxWidth:"60em"}}>
+    <Grid justify="center" grow style={{maxWidth:"60em"}} >
         {props.classes.map((classIn)=>{
             return(
                 <Class classCode={classIn.classCode} className={classIn.className} school={classIn.school}/>
