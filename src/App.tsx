@@ -1,12 +1,12 @@
-import { useState,useEffect,useRef} from 'react'
+import { useState, useEffect, useRef } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { Affix,AppShell, Stack,Navbar, Header,Button,Tabs,Card, Image,Text, Title, Anchor, Grid,ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox, useMantineColorScheme, useMantineTheme } from '@mantine/core';
-import { MantineProvider, ColorScheme, Chip} from '@mantine/core';
-import { Sun, MoonStars} from 'tabler-icons-react';
+import { Affix, AppShell, Stack, Navbar, Header, Button, Tabs, Card, Image, Text, Title, Anchor, Grid, ActionIcon, Badge, Group, Avatar, AspectRatio, Checkbox, useMantineColorScheme, useMantineTheme } from '@mantine/core';
+import { MantineProvider, ColorScheme, Chip } from '@mantine/core';
+import { Sun, MoonStars } from 'tabler-icons-react';
 
-import {ProjectPanel,Label} from './Projects';
-import {Profile,ClassList,JobList} from './About';
+import { ProjectPanel, Label } from './Projects';
+import { Profile, ClassList, JobList } from './About';
 import { BorderRadiusAnimation } from './Experiments';
 
 // Manual inputs
@@ -18,77 +18,77 @@ import { BorderRadiusAnimation } from './Experiments';
 // quite a bit of formatting work needed
 const projsInput = [
   {
-    title:'Swarm Imitation Learning', //might clean up name for real learning people-- technically behavioral cloning
-    imageURL:'images/swarmBoundaryCircling.gif', //get a nice gif here-- (alternatives of fish or the robots or just Boids)
+    title: 'Swarm Imitation Learning', //might clean up name for real learning people-- technically behavioral cloning
+    imageURL: 'images/swarmBoundaryCircling.gif', //get a nice gif here-- (alternatives of fish or the robots or just Boids)
     projectURL: '', //let's move things to a dedicated repo too
     body: // can workshop this a bit, Combines a variety of simpler methods(genetic algorithm, linear regression, nonlinear optimization) to model a variety of aspects. was included, might just need a page
-    "Machine learning pipeline to imitate a swarm's behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation.",
-    labels:[Label.Robotics,Label.Research]
+      "Machine learning pipeline to imitate a swarm's behavior. Written in Python, uses Numpy, Scipy, plotly, pygad, and sklearn. Research funded by National Science Foundation.",
+    labels: [Label.Robotics, Label.Research]
   },
   {
-    title:'Personal Site',
-    imageURL:'images/PicOfSite.png',
+    title: 'Personal Site',
+    imageURL: 'images/PicOfSite.png',
     projectURL: '',
-    body:'You\'re looking at it. Built in React+TS+Mantine. Built in modular fashion, responsive and scalable. Goals to rewrite in a few frameworks, a playground for my web development curiosities.',
-    labels:[Label.Web]
+    body: 'You\'re looking at it. Built in React+TS+Mantine. Built in modular fashion, responsive and scalable. Goals to rewrite in a few frameworks, a playground for my web development curiosities.',
+    labels: [Label.Web]
   },
   {
-    title:'Fastr Food',
-    imageURL:'images/Fastr_Food_Cropped.png',
+    title: 'Fastr Food',
+    imageURL: 'images/Fastr_Food_Cropped.png',
     projectURL: 'https://devpost.com/software/fastr-food',
-    body:'MHACKS 14 Submission. Webapp to crowdsource dining hall wait times, and factor in commute distances to recommend locations. Built with Firebase and Bootstrap.',
-    labels:[Label.Web]
+    body: 'MHACKS 14 Submission. Webapp to crowdsource dining hall wait times, and factor in commute distances to recommend locations. Built with Firebase and Bootstrap.',
+    labels: [Label.Web]
   },
   {
-    title:'Simulating Robot-Based Pollination',
+    title: 'Simulating Robot-Based Pollination',
     imageURL: 'images/PollinationReCut.png', //just pick bottom image
-    projectURL: 'https://github.com/wvu-robotics/workspace-pollination-sim',  
-    body:'High-fideliy simulation to test pollination robot during the COVID-19 pandemic. Built with ROS+Gazebo. Research out of WVU Interactive Robotics Lab.',
-    labels:[Label.Robotics, Label.Research]
+    projectURL: 'https://github.com/wvu-robotics/workspace-pollination-sim',
+    body: 'High-fideliy simulation to test pollination robot during the COVID-19 pandemic. Built with ROS+Gazebo. Research out of WVU Interactive Robotics Lab.',
+    labels: [Label.Robotics, Label.Research]
   },
   {
-    title:'FRC Autonomous Development',
+    title: 'FRC Autonomous Development',
     imageURL: 'images/marsShootingWhileMoving.gif',
     projectURL: '',
-    body:'Programmed a robot to track and shoot balls in target while moving, to compete in FIRST Robotics. Written in LabView, utilized computer vision and PID control with lookup tables.',
-    labels:[Label.Robotics]
+    body: 'Programmed a robot to track and shoot balls in target while moving, to compete in FIRST Robotics. Written in LabView, utilized computer vision and PID control with lookup tables.',
+    labels: [Label.Robotics]
   },
   {
-    title:'Retaining Ampitheater',
+    title: 'Retaining Ampitheater',
     imageURL: 'images/RetainingAmpitheater.jpg',
     projectURL: 'https://docs.google.com/presentation/d/1aP3j4olLRgYe2YNnLTBH73c660270TyJfuQBbBDXpQ4/edit?usp=sharing',
-    body:'Built a Retaining Wall capped with benches for Eagle Scout Project. 18\' by 10\' could seat 60 people packed, or 45 socially distanced.',
-    labels:[Label.Misc]
+    body: 'Built a Retaining Wall capped with benches for Eagle Scout Project. 18\' by 10\' could seat 60 people packed, or 45 socially distanced.',
+    labels: [Label.Misc]
   },
 
   // I feel a bit icky padding things with school projects, but I'll just not make them display initially, and only include the most interesting
   {
-    title:'Seam Carving Algorithm',
+    title: 'Seam Carving Algorithm',
     imageURL: 'https://images.unsplash.com/photo-1516569422572-d9e0514b9598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2xhY2llcnxlbnwwfHwwfHw%3D&w=1000&q=80',
     projectURL: '',
-    body:'EECS 280 Project: Implemented seam carving algorithm to resize images intelligently, eliminating less important information first. Written in C++.',
-    labels:[Label.School]    
+    body: 'EECS 280 Project: Implemented seam carving algorithm to resize images intelligently, eliminating less important information first. Written in C++.',
+    labels: [Label.School]
   },
   {
-    title:'Piazza Post Classification',
+    title: 'Piazza Post Classification',
     imageURL: 'images/piazzaPic.png',
     projectURL: '',
-    body:'EECS 280 Project: Utilized a simple bayesian classifier to do natural language processing and determine a post\'s topic based on the body. Written in C++.',
-    labels:[Label.School]    
+    body: 'EECS 280 Project: Utilized a simple bayesian classifier to do natural language processing and determine a post\'s topic based on the body. Written in C++.',
+    labels: [Label.School]
   },
   {
-    title:'SQL recreation',
+    title: 'SQL recreation',
     imageURL: 'images/sillyQLlogo.svg',
     projectURL: '',
-    body:'EECS 281 Project: Implement a portion of the Standard Querying Language(SQL) to create, query, and modify a database. Written in C++.',
-    labels:[Label.School]    
+    body: 'EECS 281 Project: Implement a portion of the Standard Querying Language(SQL) to create, query, and modify a database. Written in C++.',
+    labels: [Label.School]
   },
   {
-    title:'FRC Scouting Data Acquistion and Analysis System',
+    title: 'FRC Scouting Data Acquistion and Analysis System',
     imageURL: 'images/marsScouting2020.png',
     projectURL: 'https://github.com/MARSProgramming/Scouting-2020',
-    body:' Used to gather data about other teams at competition, and develop strategic insights in FIRST Robotics. Written with JS, JQuery, Bootstrap and Firebase, integrated with Google Sheets.',
-    labels:[Label.Web]
+    body: ' Used to gather data about other teams at competition, and develop strategic insights in FIRST Robotics. Written with JS, JQuery, Bootstrap and Firebase, integrated with Google Sheets.',
+    labels: [Label.Web]
   }
 ]
 
@@ -132,17 +132,17 @@ const education = [
 const work_xp = [
   {
     organization: 'National Science Foundation',
-    position:'REU Student Researcher',
+    position: 'REU Student Researcher',
     startDate: 'May 2022',
     endDate: 'July 2022',
-    description:"Imitated Swarm behavior using machine learning methods."
+    description: "Imitated Swarm behavior using machine learning methods."
   },
   { //need to differentiate both times
     organization: 'West Virginia University, Interactive Robotics Lab',
-    position:'Undergraduate Researcher',
+    position: 'Undergraduate Researcher',
     startDate: 'June 2020',
     endDate: 'October 2021',
-    description:'Wrote simulations to assist research on a variety of projects, especially robot-based pollination. Developed control code for Fast Traverse Robot'
+    description: 'Wrote simulations to assist research on a variety of projects, especially robot-based pollination. Developed control code for Fast Traverse Robot'
   },
 ]
 // next is work xp
@@ -155,8 +155,8 @@ function App() {
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme == 'dark' ? 'light' : 'dark'));
   const dark = colorScheme === 'dark';
-  
-  const [activeTab, setActiveTab] = useState(0);
+
+  const [activeTab, setActiveTab] = useState<string | null>('About');
   // console.log(elementRef.current?.clientHeight);
   const listInnerRef = useRef(null);
 
@@ -189,7 +189,7 @@ function App() {
   //   }
   //   setCurrentScroll(position);
   // };
-  
+
   // useEffect(() => {
   //   window.addEventListener('wheel', handleScroll,{ passive: true });
   //   return () => {
@@ -207,37 +207,37 @@ function App() {
   // }
 
   return (
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: colorScheme,
-          colors:{
-            brand : dark ? ['#413F54','#355691'] : ['#2B2118','#6F1A07']
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colorScheme: colorScheme,
+        colors: {
+          brand: dark ? ['#413F54', '#355691'] : ['#2B2118', '#6F1A07']
+        },
+        primaryColor: 'brand',
+        shadows: {
+          // other shadows (xs, sm, lg) will be merged from default theme
+          md: '1px 1px 3px rgba(0,0,0,.25)',
+          xl: '5px 5px 3px rgba(0,0,0,.25)',
+        },
+
+        headings: {
+          fontFamily: 'Roboto, sans-serif',
+          sizes: {
+            h1: { fontSize: 30 },
           },
-          primaryColor: 'brand',
-          shadows: {
-            // other shadows (xs, sm, lg) will be merged from default theme
-            md: '1px 1px 3px rgba(0,0,0,.25)',
-            xl: '5px 5px 3px rgba(0,0,0,.25)',
-          },
-        
-          headings: {
-            fontFamily: 'Roboto, sans-serif',
-            sizes: {
-              h1: { fontSize: 30 },
-            },
-          },        
-          }}
-      >
-        <AppShell 
-          padding="md"
-          // navbar={<Nav/>}
-          header={ 
+        },
+      }}
+    >
+      <AppShell
+        padding="md"
+        // navbar={<Nav/>}
+        header={
           // need to freeze the header on scrolls, issue with them going on top of each other
           // fixed  position={{ top: 0, left: 0 }}
           <Header height={60} p="xs" fixed>
-            {/* make it my favorite icons later */} 
+            {/* make it my favorite icons later */}
             <Group>
               {/* Icon is a bit eh now */}
               <ActionIcon
@@ -245,48 +245,52 @@ function App() {
                 color={dark ? 'yellow' : 'blue'}
                 onClick={() => toggleColorScheme()}
                 title="Toggle color scheme"
-                size={24} 
+                size={24}
               >
                 {dark ? <Sun size={18} /> : <MoonStars size={18} />}
               </ActionIcon>
               {/* hacky solution to deal with putting tabs in the top */}
               {/* I like the pills, do specific styling via styles API later*/}
-              <Tabs active={activeTab} onTabChange={setActiveTab}color={dark?"orange":"indigo"} variant="pills">
-                  <Tabs.Tab label="About"></Tabs.Tab>
-                  <Tabs.Tab label="Projects"></Tabs.Tab>
-                  <Tabs.Tab label="Experimental"></Tabs.Tab>
+              <Tabs value={activeTab} onTabChange={setActiveTab} color={dark ? "gray" : "indigo"} variant="pills">
+                <Tabs.List>
+                  <Tabs.Tab value="About">About</Tabs.Tab>
+                  <Tabs.Tab value="Projects">Projects</Tabs.Tab>
+                  <Tabs.Tab value="Experimental">Experimental</Tabs.Tab>
+                </Tabs.List>
               </Tabs>
             </Group>
           </Header>
         }
-          styles={(theme) => ({
-            main: { backgroundColor: theme.colorScheme == 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
-          })}
-        >
-          {/* <div ref={listInnerRef} onScroll={onScroll} key="specific"> */}
-            {/* I'm not sure if I like this layout, can switch it a bit later, maybe to the vertical scrolling style */}
-            <Tabs active={activeTab} onTabChange={setActiveTab} color={dark?"orange":"indigo"}>
-              <Tabs.Tab label="About">
-                {/* This looks kinda disgusting, should use avatar for face */}
-                <Profile/>
-                <Title order={3}>Education:</Title>
-                <ClassList classes={education}/>
-                <Title order={3}>Work Experience:</Title>
-                <JobList jobs={work_xp}/>
-              </Tabs.Tab>
-              <Tabs.Tab label="Projects">
-                {/* <ProjectList projs={projsInput}></ProjectList> */}
-                <ProjectPanel projsInput={projsInput}></ProjectPanel>
-              </Tabs.Tab>
-              {/* first experiment, use border radius to make a weird animation */}
-              <Tabs.Tab label="Experimental">
-              <Title order={4}>Deep Experiments in Progress!</Title>
-               <BorderRadiusAnimation/>
-              </Tabs.Tab>              
-            </Tabs>
-            {/* </div> */}
-        </AppShell>
-      </MantineProvider>
+        styles={(theme) => ({
+          main: { backgroundColor: theme.colorScheme == 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
+        })}
+      >
+        {/* <div ref={listInnerRef} onScroll={onScroll} key="specific"> */}
+        {/* I'm not sure if I like this layout, can switch it a bit later, maybe to the vertical scrolling style */}
+        <Tabs value={activeTab} onTabChange={setActiveTab} color={dark ? "orange" : "indigo"}>
+        {/* <Tabs.List> */}
+          <Tabs.Panel value="About">
+            {/* This looks kinda disgusting, should use avatar for face */}
+            <Profile />
+            <Title order={3}>Education:</Title>
+            <ClassList classes={education} />
+            <Title order={3}>Work Experience:</Title>
+            <JobList jobs={work_xp} />
+          </Tabs.Panel>
+          <Tabs.Panel value="Projects">
+            {/* <ProjectList projs={projsInput}></ProjectList> */}
+            <ProjectPanel projsInput={projsInput}></ProjectPanel>
+          </Tabs.Panel>
+          {/* first experiment, use border radius to make a weird animation */}
+          <Tabs.Panel value="Experimental">
+            <Title order={4}>Deep Experiments in Progress!</Title>
+            <BorderRadiusAnimation />
+          </Tabs.Panel>
+          {/* </Tabs.List> */}
+        </Tabs>
+        {/* </div> */}
+      </AppShell>
+    </MantineProvider>
   )
 }
 

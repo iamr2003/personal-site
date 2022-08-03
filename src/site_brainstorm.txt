@@ -88,6 +88,7 @@ Next Steps:
 - better sorting, ability to index projects by language, clipping
 - add dates as well to project sorting
 
-To release:
-- final card alignment stuff
-- some tweaks to icons and final gifs--- DONE
+Things to fix with first release:
+- top bit of overflow
+- some icon changes to first pages
+- actually write words about my bio...

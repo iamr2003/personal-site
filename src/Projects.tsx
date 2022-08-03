@@ -15,7 +15,7 @@ export enum Label{
 function LabelStyler(props:Label){
     let name:string = '';
     for (let key in Label){
-      if (Label[key] === props){ //TS gets mad, but it's fine
+      if (Object.values(Label)[Object.keys(Label).indexOf(key)] === props){ //TS boilerplate for types to be clean
         name = key;
       }
     }
@@ -91,7 +91,7 @@ function LabelStyler(props:Label){
   }
   
   //being annoying with array in stuff, so switching back to normal js---there is an easy normal way
-  export function ProjectPanel(props){
+  export function ProjectPanel(props:{projsInput:Array<ProjInfo>}){
     const mantineTheme = useMantineTheme();
     const dark = mantineTheme.colorScheme === 'dark';
   
@@ -120,14 +120,16 @@ function LabelStyler(props:Label){
         });
     });
   
+    const chipColor = dark?"yellow":"indigo";
+    const chipVariant = dark?"filled":"outline";
     return (
       <>
       {/* need to style this card more */}
       <Group position='center' p="xs" >
-      <Chip color ={dark?"yellow":"indigo"} checked={robotics} onChange={() =>setRobotics(!robotics)}>Robotics</Chip>
-      <Chip color ={dark?"yellow":"indigo"} checked={web} onChange={() =>setWeb(!web)}>Web</Chip>
-      <Chip color ={dark?"yellow":"indigo"} checked={misc} onChange={() =>setMisc(!misc)}>Misc</Chip>
-      <Chip color ={dark?"yellow":"indigo"} checked={school} onChange={() =>setSchool(!school)}> School</Chip>
+      <Chip color ={chipColor} variant={chipVariant} checked={robotics} onChange={() =>setRobotics(!robotics)}>Robotics</Chip>
+      <Chip color ={chipColor} variant={chipVariant} checked={web} onChange={() =>setWeb(!web)}>Web</Chip>
+      <Chip color ={chipColor} variant={chipVariant} checked={misc} onChange={() =>setMisc(!misc)}>Misc</Chip>
+      <Chip color ={chipColor} variant={chipVariant} checked={school} onChange={() =>setSchool(!school)}> School</Chip>
       </Group>
       {/* Idea: split into x columns(media query?) each can expand, there are more issues though*/}
       <ProjectList projs={filteredProjs}></ProjectList>
