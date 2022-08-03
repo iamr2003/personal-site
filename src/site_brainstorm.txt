@@ -92,3 +92,4 @@ Things to fix with first release:
 - top bit of overflow
 - some icon changes to first pages
 - actually write words about my bio...
+- 

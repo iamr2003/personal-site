@@ -11,7 +11,7 @@ export function Profile(props:{}){
       <Avatar src='images/SeniorFace.jpg' size='xl' radius='xl'></Avatar>
       <Title order={2}>Ibrahim Musaddequr Rahman</Title>
       {/* add some more text, edu, skills, maybe unis/companies, as logo as possible */}
-      <Text>Some words about my bio, etc.</Text>
+      {/* <Text>Some words about my bio, etc.</Text> EVENTUALLY PUT SOMETHING WITTY */}
   
       {/* Github and linked in */}
       <Group>
