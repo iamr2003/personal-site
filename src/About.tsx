@@ -60,7 +60,6 @@ export function Profile(props:{}){
         <SiReact size={30} color="#61DAFB"/>
       </Group>
         
-      {/* Add some WORK info */}
   
     </Stack>
     )
@@ -112,8 +111,8 @@ export interface JobInfo{
 // also needs styling
 function Job(props:JobInfo){
     return(
-    <Grid.Col span={6}>
-        <Card radius={"lg"} style={{maxWidth:"60ch"}}>
+    <Grid.Col span={5}>
+        <Card radius={"lg"} >
             <Stack spacing="xs">
             <Title order={4}>{props.position}</Title>
             <Text>{props.organization}</Text>

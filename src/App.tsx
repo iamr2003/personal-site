@@ -94,21 +94,21 @@ const projsInput = [
 
 const education = [
   // Fall 2022 Classes, add Stats maybe too- put it in when semester starts
-  // {
-  //   classCode: 'Math 217',
-  //   className: 'Linear Algebra',
-  //   school: 'University of Michigan'
-  // },  
-  // {
-  //   classCode: 'EECS 376',
-  //   className: 'Foundations in Computer Science',
-  //   school: 'University of Michigan'
-  // },  
-  // {
-  //   classCode: 'EECS 370',
-  //   className: 'Intro to Computer Organization',
-  //   school: 'University of Michigan'
-  // },  
+  {
+    classCode: 'Math 217',
+    className: 'Linear Algebra',
+    school: 'University of Michigan'
+  },  
+  {
+    classCode: 'EECS 376',
+    className: 'Foundations in Computer Science',
+    school: 'University of Michigan'
+  },  
+  {
+    classCode: 'EECS 370',
+    className: 'Intro to Computer Organization',
+    school: 'University of Michigan'
+  },  
   {
     classCode: 'EECS 281',
     className: 'Data Structures and Algorithms',
@@ -130,6 +130,13 @@ const education = [
 // let's make sure to link Gu/pereira as advisor
 // I think I will display without descriptions for right now, since not great formatting 
 const work_xp = [
+  {
+    organization: 'University of Michigan',
+    position: 'Resident Advisor, SubFree Theme',
+    startDate: 'August 2022',
+    endDate: 'Present',
+    description: ""
+  },
   {
     organization: 'National Science Foundation',
     position: 'REU Student Researcher',
