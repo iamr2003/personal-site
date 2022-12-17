@@ -111,7 +111,7 @@ const education = [
   },  
   {
     classCode: 'EECS 281',
-    className: 'Data Structures and Algorithms',
+    className: 'Data Structures & Algorithms',
     school: 'University of Michigan'
   },
   {
@@ -168,8 +168,8 @@ function App() {
   const listInnerRef = useRef(null);
 
   // I can probably adjust this better for top and bottom
-  const [currentScroll, setCurrentScroll] = useState(-20);
-  const [scrollDirection, setScrollDirection] = useState('down');
+  // const [currentScroll, setCurrentScroll] = useState(-20);
+  // const [scrollDirection, setScrollDirection] = useState('down');
 
   // double event call issue -- do timing latch eventually
   // continuous content is probably the actual way, I'm being stubborn tho
@@ -279,9 +279,9 @@ function App() {
           <Tabs.Panel value="About">
             {/* This looks kinda disgusting, should use avatar for face */}
             <Profile />
-            <Title order={3} mb="xs">Education:</Title>
+            <Title order={2} mb="xs">Education</Title>
             <ClassList classes={education} />
-            <Title order={3} mt="xs" mb="xs">Work Experience:</Title>
+            <Title order={2} mt="xs" mb="xs">Work Experience</Title>
             <JobList jobs={work_xp} />
           </Tabs.Panel>
           <Tabs.Panel value="Projects" >

@@ -1,4 +1,4 @@
-import { Stack,Avatar,Title,Group,Text,Card, Grid } from "@mantine/core"
+import { Stack,Avatar,Title,Group,Text,Card, Grid, CardSection, Center } from "@mantine/core"
 import {AiFillLinkedin,AiFillGithub,AiFillWindows,AiFillApple,AiFillHtml5} from 'icons-react/ai';
 import {FaUbuntu,FaFedora} from 'icons-react/fa';
 import {SiCplusplus,SiPython,SiJava,SiJavascript,SiCss3,SiLabview,SiBootstrap,SiFirebase,SiJquery,SiReact} from 'react-icons/si';
@@ -9,7 +9,7 @@ export function Profile(props:{}){
     <Stack spacing="xs">
       {/* image might just be better */}
       <Avatar src='images/SeniorFace.jpg' size='xl' radius='xl'></Avatar>
-      <Title order={2}>Ibrahim Musaddequr Rahman</Title>
+      <Title order={1}>Ibrahim Musaddequr Rahman</Title>
       {/* add some more text, edu, skills, maybe unis/companies, as logo as possible */}
       {/* <Text>Some words about my bio, etc.</Text> EVENTUALLY PUT SOMETHING WITTY */}
   
@@ -79,9 +79,10 @@ function Class(props:ClassInfo){
     <Grid.Col span={4}>
         <Card radius="lg" shadow="sm" style={{maxWidth:"40ch",minHeight:"14ch"}}>
             <Stack spacing="xs">
-            <Title order={4}>{props.classCode}: {props.className}</Title>
-        <Text>{props.school}</Text> {/* I would like this to be at bottom more */}
+            <Title order={5}>{props.className}</Title>
+            <Text>{props.classCode} </Text>
             </Stack>
+            <Text size="sm" color="dimmed">{props.school}</Text> {/* I would like this to be at bottom more */}
         </Card>
     </Grid.Col>
     )
@@ -116,7 +117,7 @@ function Job(props:JobInfo){
             <Stack spacing="xs">
             <Title order={4}>{props.position}</Title>
             <Text>{props.organization}</Text>
-            <Text>{props.startDate} - {props.endDate}</Text>
+            <Text size="sm" color="dimmed">{props.startDate} - {props.endDate}</Text>
             {/* <Text>{props.description}</Text> */}
             </Stack>
         </Card>
