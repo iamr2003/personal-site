@@ -67,7 +67,7 @@ function LabelStyler(props:Label){
   
             <Title order={3}>{props.title}</Title>
   
-          <Text>{props.body}</Text>
+          <Text >{props.body}</Text>
           
           <ListOfLabels list={props.labels}></ListOfLabels>
         </Card>

@@ -8,7 +8,8 @@ export function Profile(props:{}){
     return(
     <Stack spacing="xs">
       {/* image might just be better */}
-      <Avatar src='images/SeniorFace.jpg' size='xl' radius='xl'></Avatar>
+      {/* sigh yeah this kinda sucks, with no centering, can't wait for the rewrite */}
+      <Avatar src='images/SuitJacketSelfie.jpg' size='xl' radius='xl'></Avatar>
       <Title order={1}>Ibrahim Musaddequr Rahman</Title>
       {/* add some more text, edu, skills, maybe unis/companies, as logo as possible */}
       {/* <Text>Some words about my bio, etc.</Text> EVENTUALLY PUT SOMETHING WITTY */}
